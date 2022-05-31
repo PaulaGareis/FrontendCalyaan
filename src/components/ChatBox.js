@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import socketIOClient from 'socket.io-client';
+import styles from '../style/SupportScreen.module.css'
 
 const ENDPOINT =
   window.location.host.indexOf('localhost') >= 0
-    ? 'http://127.0.0.1:5000'
+    ? 'http://127.0.0.1:5000' || 'https://frontend-calyaan.vercel.app'
     : window.location.host;
+   
 
 export default function ChatBox(props) {
   const { userInfo } = props;
@@ -34,7 +36,7 @@ export default function ChatBox(props) {
         setMessages([...messages, { body: data.body, name: data.name }]);
       });
     }
-  }, [messages, isOpen, socket]);
+  }, [messages, isOpen, socket, userInfo]);
 
   const supportHandler = () => {
     setIsOpen(true);
@@ -78,7 +80,7 @@ export default function ChatBox(props) {
           </div>
           <ul ref={uiMessagesRef}>
             {messages.map((msg, index) => (
-              <li key={index}>
+              <li key={index} className= {styles.mesage}>
                 <strong>{`${msg.name}: `}</strong> {msg.body}
               </li>
             ))}

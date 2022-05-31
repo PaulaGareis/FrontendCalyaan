@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import { useSelector } from 'react-redux';
 import MessageBox from '../components/MessageBox';
+import styles from '../style/SupportScreen.module.css'
 
 let allUsers = [];
 let allMessages = [];
 let allSelectedUser = {};
 const ENDPOINT =
   window.location.host.indexOf('localhost') >= 0
-    ? 'http://127.0.0.1:5000'
+    ? 'http://127.0.0.1:5000' || 'https://frontend-calyaan.vercel.app'
     : window.location.host;
 
 export default function SupportScreen() {
@@ -73,7 +74,7 @@ export default function SupportScreen() {
         setMessages(allMessages);
       });
     }
-  }, [messages, socket, users]);
+  }, [messages, socket, users, userInfo]);
 
   const selectUser = (user) => {
     allSelectedUser = user;
@@ -151,7 +152,7 @@ export default function SupportScreen() {
             <ul ref={uiMessagesRef}>
               {messages.length === 0 && <li>Sin mensaje</li>}
               {messages.map((msg, index) => (
-                <li key={index}>
+                <li key={index} className= {styles.mesage}>
                   <strong>{`${msg.name}: `}</strong> {msg.body}
                 </li>
               ))}
