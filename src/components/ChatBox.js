@@ -3,7 +3,7 @@ import socketIOClient from 'socket.io-client';
 import styles from '../style/SupportScreen.module.css'
 
 const ENDPOINT =
-window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('https://frontend-calyaan.vercel.app') >= 0
+window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('frontend-calyaan.vercel.app') >= 0
 ? 'http://127.0.0.1:5000' || 'https://frontend-calyaan.vercel.app'
 : window.location.host;
  console.log ('este es el host', window.location.host )
