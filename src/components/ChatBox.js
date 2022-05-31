@@ -4,8 +4,8 @@ import styles from '../style/SupportScreen.module.css'
 
 const ENDPOINT =
   window.location.host.indexOf('localhost') >= 0
-    ? 'http://127.0.0.1:5000' || 'https://frontend-calyaan.vercel.app'
-    : window.location.host;
+  ? 'http://127.0.0.1:5000'
+  : window.location.host.indexOf('https://frontend-calyaan.vercel.app') >= 0;
    
 
 export default function ChatBox(props) {
