@@ -64,7 +64,7 @@ export const updateTurn = (id) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.put(`https://calyaanapi.herokuapp.com/api/turn/${id}`, {
+    const { data } = await Axios.put(`http://localhost:5000/api/turn/${id}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: TURN_UPDATE_SUCCESS, payload: data });

@@ -50,6 +50,7 @@ export default function Turn(props) {
         </tr>
       </thead>
       <tbody>
+      <tr>
         <td>{turn.fullName}</td>
         <td>{turn.address}</td>
         <td>{turn.city}</td>
@@ -76,6 +77,7 @@ export default function Turn(props) {
             Eliminar
           </button>
         </td>
+        </tr>
       </tbody>
     </table>
   );
