@@ -7,10 +7,7 @@ import styles from '../style/SupportScreen.module.css'
 let allUsers = [];
 let allMessages = [];
 let allSelectedUser = {};
-const ENDPOINT =
-window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('frontend-calyaan.vercel.app') >= 0
-? 'http://127.0.0.1:5000' || 'https://frontend-calyaan.vercel.app'
-: window.location.host;
+const ENDPOINT = process.env.REACT_APP_SOCKET_SERVER
  //console.log ('este es el host', window.location.host )
 
 export default function SupportScreen() {
