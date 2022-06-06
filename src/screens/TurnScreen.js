@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory} from "react-router-dom";
+  
 import { createTurn } from '../actions/turnAction.js'
 import styles from '../style/PlaceOrderScreen.module.css'
-//import { NavLink } from 'react-router-dom';
-//import styles from './Landing.module.css';
 
 export default function TurnScreen (props, order){
 //console.log('order', order)    
+const history = useHistory();
+
 console.log('props de screen', props)
 //console.log('servicios desde props', props.orderItems[0].name)
 const service = props.order.orderItems.map((service)=>{
@@ -56,10 +58,11 @@ const handleChange = (e) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-   if (dispatch (createTurn(turn))) 
+   dispatch (createTurn(turn)) 
    alert('Turno creado con exito')
-//   props.history.push(`/order/${order._id}`)
-window.location.replace(`/order/${props.order._id}`); 
+   history.push(`/order/${props.order._id}`)
+ //props.history.push(`/order/${props.order._id}`)
+//window.location.replace(`/order/${props.order._id}`); 
 };
 
 // useEffect(() => {
@@ -95,7 +98,9 @@ return (
             </select>
            
         </div>
+        
         <input className={styles.btn} type="submit" value="Enviar Turno" />
+        
     </form>
 );};
 
