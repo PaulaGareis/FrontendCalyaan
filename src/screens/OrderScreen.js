@@ -22,11 +22,11 @@ export default function OrderScreen(props) {
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error, } = orderDetails;
   const turnList = useSelector((state) => state.turnList);
-  const { turns } = turnList;
-  console.log('todos los turnos', turns)
+  const { turns, loadingTurn } = turnList;
+  console.log('lista turnos', turnList)
 
-  const turnUser = turns && turns.find(e => e.orderId === id);
-  
+  //const turnUser = turns && turns.find(e => e.orderId === id);
+  //console.log('este es el turno filtrado', turnUser)
   const orderPay = useSelector((state) => state.orderPay);
   const {
     success: successPay,
@@ -42,8 +42,10 @@ export default function OrderScreen(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
+    if (loadingTurn) { dispatch(listTurns()) } 
+   
     if (
+    
       !order ||
       successPay ||
       successDeliver ||
@@ -51,8 +53,9 @@ export default function OrderScreen(props) {
     ) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
+      
       dispatch(detailsOrder(id));
-      dispatch(listTurns());
+      
 
     } else {
       if (!order.isPaid) {
@@ -64,19 +67,19 @@ export default function OrderScreen(props) {
         }
       }
     }
-    
-    const turnUser = turns && turns.find(e => e.orderId === id);
-  
-  }, [dispatch, id, sdkReady, successPay, successDeliver, order, turns]);
+     
+  }, [dispatch, id, sdkReady, successPay, successDeliver, order, turns, loadingTurn ]);
 
- 
-const irMercadoPago=()=> {
+  const turnUser = turns && turns.find(e => e.orderId === id);
+  console.log('este es turn Filter', turnUser)
+
+  const irMercadoPago=()=> {
   props.history.push(`/mercadoPago/${order._id}`)
 }
 
-if(turnUser)  { console.log('este es el dia', turnUser.day) }
+//if(turnUser)  { console.log('este es el dia', turnUser.day) }
 
-  return loading ? (
+  return loading? (
     <LoadingBox></LoadingBox>
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
@@ -84,7 +87,7 @@ if(turnUser)  { console.log('este es el dia', turnUser.day) }
     <div>
       <h1>Pedido {order._id}</h1>
       <div className={styles.container}>
-      <div className= {styles.turn}>
+       <div className= {styles.turn}>
         <h3>Día y hora del Turno Seleccionado</h3>
         <p>Fecha: {turnUser? (turnUser.day):'' } </p>
         <p>Hora: {turnUser? (turnUser.hour):'' }</p>

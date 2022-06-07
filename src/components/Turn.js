@@ -23,12 +23,12 @@ export default function Turn(props) {
     if (window.confirm("¿Desea aceptar el turno?")) {
       dispatch(updateTurn(turn));
     }
-    window.location.replace("");
+   window.location.replace("");
   };
 
   const handleDelete = (turn) => {
     console.log("este es id", turn);
-    if (window.confirm("¿Desea aceptar el turno?")) {
+    if (window.confirm("¿Desea eliminar el turno?")) {
       dispatch(deleteTurn(turn));
     }
     window.location.replace("");

@@ -84,7 +84,7 @@ export const deleteTurn = (id) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = Axios.delete(`https://calyaanapi.herokuapp.com/api/turn/${id}`, {
+    const { data } = Axios.delete(`http://localhost:5000/api/turn/${id}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: TURN_DELETE_SUCCESS, payload:data });
