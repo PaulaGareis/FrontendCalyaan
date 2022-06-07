@@ -93,7 +93,7 @@ export default function MercadoPagoForm(props) {
                             } = cardForm.getCardFormData();
                             
                             fetch(
-                                `http://localhost:5000/process-payment`,
+                                `https://calyaanapi.herokuapp.com/process-payment`,
                                 {
                                     // entry point backend
                                     method: "POST",
