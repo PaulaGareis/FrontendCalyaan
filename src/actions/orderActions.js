@@ -71,16 +71,16 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
   }
 };
 
-export const payOrder = (order, paymentResult) => async (
+export const payOrder = (order, resultPayment) => async (
   dispatch,
   getState
 ) => {
-  dispatch({ type: ORDER_PAY_REQUEST, payload: { order, paymentResult } });
+  dispatch({ type: ORDER_PAY_REQUEST, payload: { order, resultPayment } });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = Axios.put(`https://calyaanapi.herokuapp.com/api/orders/${order._id}/pay`, paymentResult, {
+    const { data } = Axios.put(`http://localhost:5000/api/orders/${order}/pay`, resultPayment, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: ORDER_PAY_SUCCESS, payload: data });

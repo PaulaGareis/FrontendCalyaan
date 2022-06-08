@@ -4,7 +4,9 @@ import { formConfig } from "./formConfig";
 import Card from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import { useParams } from "react-router-dom";
-import styles from '../../style/MercadoPagoForm.module.css'
+import styles from '../../style/MercadoPagoForm.module.css';
+import { payOrder} from '../../actions/orderActions.js';
+import { useDispatch } from 'react-redux';
 //import useMercadoPago from "../hooks/useMercadoPago.js";
 //import { useSelector } from 'react-redux';
 //import OrderScreen from "../../screens/OrderScreen.js";
@@ -32,6 +34,7 @@ export default function MercadoPagoForm(props) {
     console.log('este es el id', id)    
     const [state, setState] = useState(INITIAL_STATE);
     const resultPayment = useMercadoPago();
+    const dispatch = useDispatch();
   
     const handleInputChange = (e) => {
         setState({
@@ -63,7 +66,7 @@ export default function MercadoPagoForm(props) {
        
         useEffect(() => {
             if (MercadoPago) {
-                const mp = new MercadoPago('TEST-b1149716-091a-44cc-82d0-20f7cf7075e8');
+                const mp = new MercadoPago('TEST-6b20445a-c8e0-464b-8db9-eb32c1630a6a');
                
                 const cardForm = mp.cardForm({
                     amount: "100000.5",
@@ -93,14 +96,14 @@ export default function MercadoPagoForm(props) {
                             } = cardForm.getCardFormData();
                             
                             fetch(
-                                `https://calyaanapi.herokuapp.com/process-payment`,
+                                `http://localhost:5000/process-payment`,
                                 {
                                     // entry point backend
                                     method: "POST",
                                     headers: {
-                                         "Access-Control-Allow-Origin": "*",
-                                        //  "Access-Control-Request-Method":
-                                        //  "GET, POST, DELETE, PUT, OPTIONS",
+                                        "Access-Control-Allow-Origin": "*",
+                                        "Access-Control-Request-Method":
+                                        "GET, POST, DELETE, PUT, OPTIONS",
                                         "Content-Type": "application/json",
                                     },
                                     body: JSON.stringify({
@@ -122,11 +125,15 @@ export default function MercadoPagoForm(props) {
                                 }
                             )
                                 .then((res) => res.json())
-                                .then((data) => setResultPayment(data) )
+                                .then((data) => { 
+                                    setResultPayment(data)
+                                    dispatch(payOrder(id, resultPayment))
+                                })                          
                                 .catch((err) => {
                                     setResultPayment(err);
+
                                 });
-                                //props.history.push(`/order/${id}`)
+                                
                                   
                         },
                         onFetching: (resource) => {
@@ -150,7 +157,7 @@ export default function MercadoPagoForm(props) {
         return resultPayment;
         
     }
-    //dispatch(payOrder(orderId, resultPayment))
+    //dispatch(payOrder(id, resultPayment))
     
 
 
