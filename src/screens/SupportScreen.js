@@ -7,7 +7,7 @@ import styles from '../style/SupportScreen.module.css'
 let allUsers = [];
 let allMessages = [];
 let allSelectedUser = {};
-const ENDPOINT = process.env.REACT_APP_SOCKET_SERVER
+const ENDPOINT = process.env.REACT_APP_API_BASE_URL
  //console.log ('este es el host', window.location.host )
 
 export default function SupportScreen() {

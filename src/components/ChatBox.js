@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import styles from '../style/SupportScreen.module.css'
 
-const ENDPOINT =process.env.REACT_APP_SOCKET_SERVER;
+const ENDPOINT =process.env.REACT_APP_API_BASE_URL;
  //console.log ('este es el host', window.location.host )
 export default function ChatBox(props) {
   const { userInfo } = props;

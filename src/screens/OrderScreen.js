@@ -12,6 +12,7 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../constants/orderConstants';
+import MercadoPagoForm from '../MercadoPago/components/MercadoPagoForm';
 
 
 
@@ -21,9 +22,11 @@ export default function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error, } = orderDetails;
+  
+
   const turnList = useSelector((state) => state.turnList);
   const { turns, loadingTurn } = turnList;
-  console.log('lista turnos', turnList)
+  //console.log('lista turnos', turnList)
 
   //const turnUser = turns && turns.find(e => e.orderId === id);
   //console.log('este es el turno filtrado', turnUser)
@@ -77,7 +80,7 @@ export default function OrderScreen(props) {
   props.history.push(`/mercadoPago/${order._id}`)
 }
 
-//if(turnUser)  { console.log('este es el dia', turnUser.day) }
+if (order)console.log('la order gral', order)
 
   return loading? (
     <LoadingBox></LoadingBox>
@@ -229,7 +232,7 @@ export default function OrderScreen(props) {
                 </li>
               )} */}
               <div className={styles.pay}>
-              {turnUser && turnUser.status? (<button className={styles.btn} onClick={irMercadoPago}>Pagar</button>):'Pendiente en ser aprobado el servicio por un profesional' }
+              {turnUser && turnUser.status  ? (<button className={styles.btn} onClick={irMercadoPago}>Pagar</button>):'Pendiente en ser aprobado el servicio por un profesional' }
               </div>
             </ul>
           </div>
