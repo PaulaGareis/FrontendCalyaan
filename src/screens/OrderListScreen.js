@@ -35,7 +35,7 @@ export default function OrderListScreen(props) {
     if (window.confirm('¿Va confirmar que realizo el servicio?')) {
       dispatch(deliverOrder(order._id));
     }
-    window.location.replace("");
+    //window.location.replace("");
   };
 
   console.log('usuario', orders)
