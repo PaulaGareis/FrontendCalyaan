@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteOrder, listOrders } from '../actions/orderActions';
+import { deleteOrder, listOrders, deliverOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { ORDER_DELETE_RESET } from '../constants/orderConstants';
@@ -24,10 +24,18 @@ export default function OrderListScreen(props) {
     dispatch({ type: ORDER_DELETE_RESET });
     dispatch(listOrders({ seller: sellerMode ? userInfo._id : '' }));
   }, [dispatch, sellerMode, successDelete, userInfo._id]);
+  
   const deleteHandler = (order) => {
     if (window.confirm('¿Desea eliminar el pedido?')) {
       dispatch(deleteOrder(order._id));
     }
+  };
+
+  const changeToDo = (order) => {
+    if (window.confirm('¿Va confirmar que realizo el servicio?')) {
+      dispatch(deliverOrder(order._id));
+    }
+    window.location.replace("");
   };
 
   console.log('usuario', orders)
@@ -81,6 +89,13 @@ export default function OrderListScreen(props) {
                     onClick={() => deleteHandler(order)}
                   >
                     Eliminar
+                  </button>
+                  <button
+                    type="button"
+                    className= {styles.btn}
+                    onClick={() => changeToDo(order)}
+                  >
+                    Realizado
                   </button>
                 </td>
               </tr>
