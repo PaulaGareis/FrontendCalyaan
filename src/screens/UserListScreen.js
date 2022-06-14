@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

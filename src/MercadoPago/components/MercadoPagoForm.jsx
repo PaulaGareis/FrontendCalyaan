@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable spaced-comment */
 /* eslint-disable camelcase */
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
@@ -29,7 +31,7 @@ export default function MercadoPagoForm(props) {
 	const [state, setState] = useState(INITIAL_STATE);
 	const resultPayment = useMercadoPago();
 	const dispatch = useDispatch();
-	const history = useHistory();
+	//const history = useHistory();
 
 	const orderDetails = useSelector(state => state.orderDetails);
 	const { order } = orderDetails;
@@ -123,8 +125,10 @@ export default function MercadoPagoForm(props) {
 								.then(res => res.json())
 								.then(data => {
 									setResultPayment(data);
-									if (resultPayment.status === 'approved')
+									console.log('primer resultado', data);
+									if (data.status === 'approved')
 										dispatch(payOrder(id, resultPayment));
+
 									// handlerGoTo();
 								})
 								.catch(err => {
@@ -145,79 +149,79 @@ export default function MercadoPagoForm(props) {
 				});
 			}
 
-			if (resultPayment) handlerGoTo();
+			//if (resultPayment) handlerGoTo();
 		}, [MercadoPago, resultPayment]);
 		console.log('resultado pago', resultPayment);
 
 		return resultPayment;
 	}
 
-	const handlerGoTo = () => {
-		if (
-			resultPayment.status === 'approved' &&
-			resultPayment.status_detail === 'accredited'
-		) {
-			alert('Pago realizado con exito');
-			history.push(`/order/${order._id}`);
-		}
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_other_reason'
-		) {
-			alert(
-				'Pago rechazado por error general, vuelva a intentarlo verificando sus datos'
-			);
-			history.push(`/mercadoPago/${order._id}`);
-		}
+	// const handlerGoTo = () => {
+	// 	if (
+	// 		resultPayment.status === 'approved' &&
+	// 		resultPayment.status_detail === 'accredited'
+	// 	) {
+	// 		alert('Pago realizado con exito');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_other_reason'
+	// 	) {
+	// 		alert(
+	// 			'Pago rechazado por error general, vuelva a intentarlo verificando sus datos'
+	// 		);
+	// 		history.push(`/mercadoPago/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'in_process' &&
-			resultPayment.status_detail === 'pending_contingency'
-		) {
-			alert('Pago pendiente por ser procesado');
-			history.push(`/order/${order._id}`);
-		}
+	// 	if (
+	// 		resultPayment.status === 'in_process' &&
+	// 		resultPayment.status_detail === 'pending_contingency'
+	// 	) {
+	// 		alert('Pago pendiente por ser procesado');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_call_for_authorize'
-		) {
-			alert('Pago Rechazado con validación para autorizar');
-			history.push(`/order/${order._id}`);
-		}
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_call_for_authorize'
+	// 	) {
+	// 		alert('Pago Rechazado con validación para autorizar');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_insufficient_amount'
-		) {
-			alert('Pago Rechazado por importe insuficiente, pruebe con otra tarjeta');
-			history.push(`/order/${order._id}`);
-		}
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_insufficient_amount'
+	// 	) {
+	// 		alert('Pago Rechazado por importe insuficiente, pruebe con otra tarjeta');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_bad_filled_security_code'
-		) {
-			alert('Pago Rechazado por código de seguridad inválido	');
-			history.push(`/order/${order._id}`);
-		}
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_bad_filled_security_code'
+	// 	) {
+	// 		alert('Pago Rechazado por código de seguridad inválido	');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_bad_filled_date'
-		) {
-			alert('Pago Rechazado por problema en la fecha de vencimiento');
-			history.push(`/order/${order._id}`);
-		}
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_bad_filled_date'
+	// 	) {
+	// 		alert('Pago Rechazado por problema en la fecha de vencimiento');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
 
-		if (
-			resultPayment.status === 'rejected' &&
-			resultPayment.status_detail === 'cc_rejected_bad_filled_other'
-		) {
-			alert('Pago Rechazado debido a un error de formulario');
-			history.push(`/order/${order._id}`);
-		}
-	};
+	// 	if (
+	// 		resultPayment.status === 'rejected' &&
+	// 		resultPayment.status_detail === 'cc_rejected_bad_filled_other'
+	// 	) {
+	// 		alert('Pago Rechazado debido a un error de formulario');
+	// 		history.push(`/order/${order._id}`);
+	// 	}
+	// };
 
 	return (
 		<div className={styles.container}>

@@ -38,7 +38,8 @@ import Landing from './screens/Landing';
 import TurnScreen from './screens/TurnScreen';
 import TurnListScreen from './screens/TurnListScreen';
 import Footer from './components/Footer.js';
-import worker from './webPush/worker';
+import recoverPasswordScreen from './screens/recoverPasswordScreen.js';
+// import worker from './webPush/worker';
 
 function App() {
 	const dispatch = useDispatch();
@@ -63,6 +64,10 @@ function App() {
 					exact
 				></Route>
 				<Route path='/signin' component={SigninScreen}></Route>
+				<Route
+					path='/recoverPassword'
+					component={recoverPasswordScreen}
+				></Route>
 				<Route path='/register' component={RegisterScreen}></Route>
 				<Route path='/shipping' component={ShippingAddressScreen}></Route>
 				<Route path='/payment' component={PaymentMethodScreen}></Route>
@@ -72,7 +77,7 @@ function App() {
 				<Route path='/turnlist' component={TurnListScreen}></Route>
 				<Route path='/orderhistory' component={OrderHistoryScreen}></Route>
 				<Route path='/mercadoPago/:id' component={MercadoPagoForm}></Route>
-				<Route path='/worker' component={worker}></Route>
+				{/* <Route path='/worker' component={worker}></Route> */}
 
 				<Route
 					path='/search/name/:name?'

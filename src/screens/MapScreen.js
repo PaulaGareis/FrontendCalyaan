@@ -25,12 +25,14 @@ export default function MapScreen(props) {
 	const markerRef = useRef(null);
 
 	useEffect(() => {
-	  const fetch = async () => {
-	    const { data } = await Axios('/api/config/google');
-	    setGoogleApiKey(data);
-	    getUserCurrentLocation();
-	  };
-	  fetch();
+		const fetch = async () => {
+			const { data } = await Axios(
+				`${process.env.REACT_APP_API_BASE_URL}/api/config/google`
+			);
+			setGoogleApiKey(data);
+			getUserCurrentLocation();
+		};
+		fetch();
 	}, []);
 
 	const onLoad = map => {
@@ -55,6 +57,7 @@ export default function MapScreen(props) {
 		setLocation({ lat: place.lat(), lng: place.lng() });
 	};
 	const dispatch = useDispatch();
+
 	const onConfirm = () => {
 		const places = placeRef.current.getPlaces();
 		if (places && places.length === 1) {
@@ -93,7 +96,9 @@ export default function MapScreen(props) {
 			});
 		}
 	};
-
+	console.log('el googleAPiKey', googleApiKey);
+	console.log('el center', center);
+	console.log('el location', location);
 	return googleApiKey ? (
 		<div className='full-container'>
 			<LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>

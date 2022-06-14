@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 import SearchBox from './SearchBox';
 import { NavLink, Route } from 'react-router-dom';
@@ -124,7 +123,7 @@ function Navbar() {
 							) : (
 								<NavLink to='/signin'>
 									{' '}
-									<bottom className={styles.btn}>Iniciar sesión</bottom>
+									<div className={styles.btn}>Iniciar sesión</div>
 								</NavLink>
 							)}
 							{userInfo && userInfo.isSeller && (

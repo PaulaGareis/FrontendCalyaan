@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 // import { createTurn } from '../actions/turnAction.js'
 import styles from '../style/PlaceOrderScreen.module.css';
 import {
-	
 	TURN_CREATE_SUCCESS,
 	TURN_CREATE_FAIL,
 } from '../constants/turnConstant.js';
@@ -15,7 +14,7 @@ import Axios from 'axios';
 
 export default function TurnScreen(props, order) {
 	const history = useHistory();
-	// console.log('props de screen', props)
+	console.log('props de screen', props.order);
 
 	const service = props.order.orderItems.map(service => {
 		return {
@@ -41,6 +40,7 @@ export default function TurnScreen(props, order) {
 		user: props.order.user,
 		orderId: props.order._id,
 		fullName: props.order.shippingAddress.fullName,
+		emailUser: userInfo.email,
 		address: props.order.shippingAddress.address,
 		city: props.order.shippingAddress.city,
 		postalCode: props.order.shippingAddress.postalCode,
