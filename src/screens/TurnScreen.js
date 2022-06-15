@@ -58,6 +58,10 @@ export default function TurnScreen(props, order) {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
+		if (!turn.hour || !turn.day) {
+			alert('debe seleccionar un dia y una hora');
+		}
+
 		// dispatch({ type: TURN_CREATE_REQUEST, payload: turn });
 		try {
 			//   const {
