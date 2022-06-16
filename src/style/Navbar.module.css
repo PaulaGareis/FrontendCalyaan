@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 .container {
 	background-color: #f7f4f0;
-	height: 10vw;
+	height: 8em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -11,10 +11,7 @@
 	margin: 0 0 0 0;
 }
 
-/* @media (min-width: 767.98px) {
-	.all aside{
-		display: none;
-	}} */
+
 
 .menu {
 	display: flex;
@@ -22,7 +19,6 @@
 	justify-content: flex-end;
 	align-items: center;
 	column-gap: 1vw;
-	margin-right: 1vw;
 	color:#494949;
 	font-size: 1.3em;
 	font-family: 'Josefin Sans';
@@ -85,9 +81,6 @@
 	border: none;
 	color: #f7f4f0;
 	padding: 1vw;
-	font-size: 1.2em;
-	font-family: 'Josefin Sans';
-	border-radius: 5px;
 	cursor: pointer;
 }
 
@@ -137,20 +130,22 @@
 }
 
 .carrito {
-	width: 4vw;
-	height: 5vw;
+	width: 4em;
+	height: 5em;
 	margin-left: 0em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 0em;
+	
 }
 
 .carrito img {
-	width: 2.5vw;
-	height: 2.5vw;
+	width: 2.5em;
+	height: 2.5em;
 	margin: 0 0 0 0;
+	
 }
 
 .badge {
@@ -193,6 +188,7 @@
 
 .nav {
 	margin-left: 0.5vw;
+	margin: 1em;
 	color: #494949;
 	text-decoration: none;
 	padding: 0.5vw 0.5vw 0.5vw 0.5vw;
@@ -201,74 +197,59 @@
 	font-size: 1vw;
 }
 
-@media (max-width: 1199.98px) {
-	.container,
-	.container2,
-	.container3 {
-		width: 100vw;
-	}
-	.menu {
-		justify-content: center;
-	}
+.all section{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	
+	
 }
+
+
+
 
 @media (max-width: 991.98px) {
-	.container,
-	.container2,
-	.container3 {
+	.container
+	{
 		width: 100vw;
 	}
 }
 
-@media (max-width: 767.98px) {
-	.navbar {
-		display: flex;
-		flex-direction: column;
-		padding: 0 0 0 0;
-	}
+@media (max-width: 768px) {
+	.container {
+		background-color: #eda598;
+ }
 
-	.navbar img {
-		margin-left: 3vw;
-		margin-right: 0vw;
-		margin-top: 0;
-		padding: 0 0 0 0;
+	.menu {
+	display: none;
 	}
-	.container3 {
-		background-color: #ffffff;
-	}
-
-	.container2 {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		padding-bottom: 5vw;
-		padding-top: 1.3vw;
-		padding-left: 0;
-		padding-right: 0;
-		height: 10vw;
-	}
-
-	.navbar img {
-		padding-top: 3vw;
-	}
-	.input,
-	.btnSearch {
-		height: 4vw;
+	
+	.container1 {
+		display: none;
 	}
 
 	.nav {
 		font-size: 1em;
+		margin: 1em;
 	}
 	.carrito img {
-		width: 4vw;
-		height: 4vw;
+		width: 3em;
+		height: 3em;
 		margin: 0 0 0 4vw;
 	}
 }
 
 @media (max-width: 575.98px) {
-	.input,
-	.btnSearch {
-		height: 7vw;
+	.menu{
+		display: none;
 	}
+
+	.nav{
+		margin: 1em;
+		margin-left: 0;
+		font-size: 0.7em;
+	}
+
+
 }

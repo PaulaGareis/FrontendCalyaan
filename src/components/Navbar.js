@@ -110,9 +110,9 @@ function Navbar() {
 						</NavLink>
 					)}
 					{userInfo && userInfo.isSeller && (
-						<div className={styles.nav}>
+						<div>
 							<div className='dropdown'>
-								<NavLink to='#admin'>
+								<NavLink to='#admin' className={styles.nav}>
 									Vendedor <i></i>
 								</NavLink>
 								<ul className='dropdown-content'>
@@ -195,7 +195,7 @@ function Navbar() {
 				)}
 			</div>
 
-			<div>
+			<section>
 				<button
 					type='button'
 					className='open-sidebar'
@@ -204,7 +204,7 @@ function Navbar() {
 					<i className='fa fa-bars'></i>
 				</button>
 				<NavLink className='brand' to='/'></NavLink>
-			</div>
+			</section>
 
 			<aside className={sidebarIsOpen ? 'open' : ''}>
 				<ul className='categories'>
