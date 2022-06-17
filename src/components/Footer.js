@@ -6,16 +6,17 @@ import pinteres from '../assent/pinteres.png';
 import youtube from '../assent/youtube.png';
 import facebook from '../assent/facebook.png';
 import instagram from '../assent/instagram.png';
-import whatsApp from '../assent/whatsApp.png';
+import whatsApp from '../assent/whatsApp1.png';
+import logo3 from '../assent/LOGO34.png';
 
 export default function Footer() {
 	const userSignin = useSelector(state => state.userSignin);
 	const { userInfo } = userSignin;
-	const goWhatsApp = () => {
-		window.location.replace(
-			'https://api.whatsapp.com/send?phone=+573127411293&text=hola'
-		);
-	};
+	// const goWhatsApp = () => {
+	// 	window.location.replace(
+	// 		'https://api.whatsapp.com/send?phone=+573127411293&text=hola'
+	// 	);
+	// };
 	const handleClickBlog = () => {
 		window.location.replace('https://calyaan.com/blog/');
 	};
@@ -60,8 +61,12 @@ export default function Footer() {
 
 	return (
 		<div className={styles.container}>
+			<div className={styles.logo}>
+				<img src={logo3} alt='Logo' />
+			</div>
+
 			<div className={styles.footer1}>
-				<h2>Categorias</h2>
+				<h2>CATEGORIAS</h2>
 				<ul>
 					<NavLink to='/service'>
 						{' '}
@@ -71,7 +76,7 @@ export default function Footer() {
 			</div>
 
 			<div className={styles.footer2}>
-				<h2>calyaan</h2>
+				<h2>CALYAAN</h2>
 				<ul>
 					<NavLink to='/' onClick={handleClickNosotros}>
 						<li>Nosotros</li>
@@ -86,7 +91,7 @@ export default function Footer() {
 			</div>
 
 			<div className={styles.footer3}>
-				<h2>Enlaces</h2>
+				<h2>ENLACES</h2>
 				<ul>
 					<NavLink to='/' onClick={handleClickCorporativo}>
 						<li>Servicio corporativo</li>
@@ -104,6 +109,14 @@ export default function Footer() {
 						<li>Panel Profesionales</li>
 					</NavLink>
 				</ul>
+			</div>
+
+			<div className={styles.Footer5}>
+				<h2>CONTÁCTANOS</h2>
+				<div className={styles.imgW}>
+					<img src={whatsApp} />
+					<h3> (+57)3147428757</h3>
+				</div>
 			</div>
 
 			<div className={styles.footer4}>
@@ -128,11 +141,11 @@ export default function Footer() {
 					<h3>(+57) 3147428757</h3>
 					<h3>Calyaan.com@gmail.com</h3>
 				</div>
-				<div className={styles.footer5}>
+				{/* <div className={styles.footer5}>
 					<button onClick={goWhatsApp} className={styles.btnW}>
 						<img src={whatsApp} className={styles.imgW} />
 					</button>
-				</div>
+				</div> */}
 			</div>
 			{userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
 		</div>

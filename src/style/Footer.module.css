@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 
 .container {
 	display: flex;
@@ -9,6 +8,7 @@
 	justify-content: space-around;
 	align-items: flex-start;
 	align-content: center;
+	padding-top: 5%;
 	background-color: #494949;
 }
 
@@ -23,7 +23,7 @@ ul,
 li {
 	font-size: 1em;
 	color: #fff;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'josefin sans';
 }
 
 .container button {
@@ -43,6 +43,39 @@ li {
 	flex-direction: row;
 	justify-content: flex-end;
 }
+
+.logo{
+width: 10%;
+height: 7%;
+}
+
+.logo img{
+	width: 90%;
+	height: auto;
+}
+
+.Footer5{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	width: 20%;
+	align-items: center;
+}
+.imgW{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5%;
+}
+
+.imgW img{
+	width: 20px;
+	height: 20px;
+	margin-right: 3px;
+}
+
 
 @media (max-width: 767.98px) {
 	.container h2,
@@ -65,4 +98,14 @@ li {
 		width: 5vw;
 		height: 5vw;
 	}
+
+	.logo{
+		width: 15%;
+		height: 11%;
+		}
+
+		.logo img{
+			width: 90%;
+			height: auto;
+		}
 }
