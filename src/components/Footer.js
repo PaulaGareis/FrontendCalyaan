@@ -8,6 +8,7 @@ import facebook from '../assent/facebook.png';
 import instagram from '../assent/instagram.png';
 import whatsApp from '../assent/whatsApp1.png';
 import logo3 from '../assent/LOGO34.png';
+import correo from '../assent/correo.png';
 
 export default function Footer() {
 	const userSignin = useSelector(state => state.userSignin);
@@ -117,30 +118,33 @@ export default function Footer() {
 					<img src={whatsApp} />
 					<h3> (+57)3147428757</h3>
 				</div>
+				<div className={styles.imgW}>
+					<img src={correo} />
+					<h3>Calyaan.com@gmail.com</h3>
+				</div>
 			</div>
 
 			<div className={styles.footer4}>
-				<h2>Únete a nuestra comunidad</h2>
+				<h2>SÍGUENOS</h2>
 				<div className={styles.btn}>
 					<button onClick={handleClickInstagram}>
 						<img src={instagram} />
+						<h3>@Calyaancol</h3>
 					</button>
 					<button onClick={handleClickFacebook}>
 						<img src={facebook} />
+						<h3>Calyaan</h3>
 					</button>
 					<button onClick={handleClickYoutube}>
 						<img src={youtube} />
+						<h3>Calyaan</h3>
 					</button>
 					<button onClick={handleClickPinteres}>
 						<img src={pinteres} />
+						<h3>Calyaancol</h3>
 					</button>
 				</div>
 
-				<div>
-					<h2>Mas Información</h2>
-					<h3>(+57) 3147428757</h3>
-					<h3>Calyaan.com@gmail.com</h3>
-				</div>
 				{/* <div className={styles.footer5}>
 					<button onClick={goWhatsApp} className={styles.btnW}>
 						<img src={whatsApp} className={styles.imgW} />
