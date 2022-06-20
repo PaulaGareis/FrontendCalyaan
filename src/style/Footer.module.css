@@ -9,7 +9,7 @@
 	justify-content: space-around;
 	align-items: flex-start;
 	align-content: center;
-	padding-top: 5%;
+	padding-top: 3%;
 	background-color: #494949;
 }
 
@@ -19,13 +19,23 @@
 }
 
 .container h2,
-h3,
-ul,
-li {
-	font-size: 1em;
+h3
+ {
+	font-size: 1.1em;
 	font-style: normal;
 	color: #fff;
 	font-family: 'josefin sans';
+	font-weight: 100;
+}
+
+
+.container ul
+li {
+	font-size: 1.5em;
+	font-style: normal;
+	color: #fff;
+	font-family: 'josefin sans';
+	font-weight: 100;
 }
 
 .container button {
@@ -97,13 +107,33 @@ height: 7%;
 }
 
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
+	.container{
+		padding-top: 0;
+		margin: 0;
+	}
+	
 	.container h2,
 	h3,
 	ul,
 	li {
-		font-size: 1em;
+		font-size: 0.7em;
+		
 	}
+
+	.btn{
+		display: flex;
+		flex-direction: row;
+	}
+
+	.btn button{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+
+}
+
 }
 
 @media (max-width: 575.98px) {
@@ -114,7 +144,8 @@ height: 7%;
 	h3,
 	ul,
 	li {
-		font-size: 0.8em;
+		font-size: 0.6em;
+		
 	}
 
 	.btn{
