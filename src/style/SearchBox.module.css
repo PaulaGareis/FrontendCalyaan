@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.search {
+	display: flex;
+	width: 50vw;
+    height: auto;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.input {
+	padding: 0 0 0 0;
+	width: 40%;
+	height: 3em;
+	border-radius: 0.25em;
+	color: #494949;
+    background-color: #f7f4f0;
+	margin: 0em 0em 0em 0em;
+	font-size: 1.2em;
+    font-family: 'Josefin Sans';
+}
+
+
+.btnSearch {
+    width: 4em;
+    height: 4em;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.btnSearch img{
+    width: 90%;
+    height: 90%;
+
+}
+
+@media (max-width: 768px) {
+    .search {
+        width: 80vw;
+        margin-left: 0%;
+    }
+
+     }
+    .input {
+        width: 90%;
+    }
+
+    .btnSearch img{
+        width: 90%;
+        height: 70%;
+    
+    }
+
+@media (max-width: 575.98px) {
+    .search {
+       margin-left: 20%;
+    }
+}
+
+
+
+
+
+/* 
+.search img{
+	width: 1.5em;
+	height: 1.5em;
+	border: none;
+	background-color: transparent;
+} */
+
+
+/* .btnSearch {
+	border-radius: 0.25em;
+	color: #ffffff;
+	margin: 0em 0em 0em 0em;
+	padding: 0vw 0vw 0vw 0vw;
+	background-color: #494949;
+	font-family: 'Josefin Sans';
+	font-size: 1.2em;
+	height: 3vw;
+}
+
+.btnSearch:hover {
+	background-color: #ffffff;
+	color: #494949;
+} */

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 .container {
 	display: flex;
 	flex-direction: column;
@@ -15,29 +14,51 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	font-family: open Sans;
-	color: #2d495e;
-	font-size: 1.5em;
+	font-family: 'Josefin Sans';
 	align-content: flex-start;
-	margin-bottom: 1em;
-	margin-top: 0em;
+	align-items: center;
 	flex-wrap: wrap;
+	height: 100%;
+	
 }
 
-.container1 div select {
-	border-radius: 0.5em;
-	border: none;
-	background-color: #627c8e;
-	color: white;
-	font-size: 0.7em;
+.container1 select {
+	border-radius: 0.2em;
+	border: solid 1px #494949;
+	height: 3em;
+	background-color: #f7f4f0;
+	color: #494949;
+	font-size: 1.1em;
+	font-family: 'Josefin Sans';
 	padding: 0.3em;
 }
+
+.container1 h3{
+	font-size: 2em;
+	margin: 0em 0em 0em 0em;
+	color: #494949;
+}
+
 
 .container2 {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 }
+
+.contenSearch{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: flex-start;
+	width: 100vw;
+	height: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 .col1 {
 	display: flex;
 	width: 22vw;
@@ -150,9 +171,19 @@ li {
 	transform: scale3d(1, 1, 1);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
 	.container {
 		margin-top: 3em;
+	}
+
+	.contenSearch{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		align-items: flex-start;
+		margin-top: 0em;
+		margin-bottom: 0.5em;
 	}
 }
 

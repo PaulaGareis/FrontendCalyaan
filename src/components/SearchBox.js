@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import styles from '../style/Navbar.module.css';
+import styles from '../style/SearchBox.module.css';
+import lupa from '../assent/lupa.png';
 
 export default function SearchBox(props) {
 	const [name, setName] = useState('');
@@ -20,7 +21,7 @@ export default function SearchBox(props) {
 					className={styles.input}
 				></input>
 				<button className={styles.btnSearch} type='submit'>
-					Buscar
+					<img src={lupa} />
 				</button>
 			</div>
 		</form>

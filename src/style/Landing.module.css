@@ -9,7 +9,7 @@
 	width: 100vw;
 	height: auto;
 	padding: 0 0 0 0;
-	margin: 2em 0 0 0;
+	margin: 1em 0 0 0;
 }
 
 .container h2 {
@@ -162,7 +162,7 @@
 
 @media (max-width: 767.98px) {
 	.container {
-		margin: 3em 0 0 0;
+		margin: 2em 0 0 0;
 	}
 
 	.steps > div {
@@ -173,6 +173,6 @@
 }
 @media (max-width: 575.98px) {
 	.container {
-		margin: 4em 0 0 0;
+		margin: 2em 0 0 0;
 	}
 }
