@@ -9,7 +9,7 @@
 	justify-content: space-around;
 	align-items: flex-start;
 	align-content: center;
-	padding-top: 3%;
+	padding-top: 4%;
 	background-color: #494949;
 }
 
@@ -113,13 +113,19 @@ height: 7%;
 		margin: 0;
 	}
 	
-	.container h2,
-	h3,
-	ul,
+	.container 
+	ul
 	li {
 		font-size: 0.7em;
-		
+		font-weight: 300;
 	}
+
+	.container h2,
+	h3 {
+		font-size: 0.7em;
+		font-weight: 300;
+	}
+
 
 	.btn{
 		display: flex;
@@ -140,12 +146,17 @@ height: 7%;
 	.container{
 		padding: 0 0 0 0;
 	}
-	.container h2,
-	h3,
-	ul,
+	.container 
+	ul
 	li {
-		font-size: 0.6em;
-		
+		font-size: 0.7em;
+		font-weight: 400;
+	}
+
+	.container h2,
+	h3 {
+		font-size: 0.7em;
+		font-weight: 400;
 	}
 
 	.btn{
