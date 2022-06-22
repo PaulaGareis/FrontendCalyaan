@@ -61,10 +61,60 @@ export default function ServiceScreen(props) {
 				<MessageBox variant='danger'>{error}</MessageBox>
 			) : (
 				<div>
-					<Link to='/'>Volver al Resultado</Link>
 					<div className={styles.container1}>
 						<div className={styles.col1}>
 							<img src={service.image} alt={service.name}></img>
+
+							<div className={styles.col3}>
+								<ul>
+									<li>
+										<div>
+											<h2>Precio</h2>
+											<div className='price'>${service.price}</div>
+										</div>
+									</li>
+									<li>
+										<div>
+											<h2>Estado</h2>
+											<div>
+												{service.countInStock > 0 ? (
+													<span className='success'>Disponible</span>
+												) : (
+													<span className='danger'>No disponible</span>
+												)}
+											</div>
+										</div>
+									</li>
+									{service.countInStock > 0 && (
+										<>
+											<li>
+												<div>
+													<h2>Cantidad</h2>
+
+													<select
+														value={qty}
+														onChange={e => setQty(e.target.value)}
+													>
+														{[...Array(service.countInStock).keys()].map(x => (
+															<option key={x + 1} value={x + 1}>
+																{x + 1}
+															</option>
+														))}
+													</select>
+												</div>
+											</li>
+											<li>
+												<button
+													onClick={addToCartHandler}
+													className={styles.btn}
+												>
+													Agregar al carrito
+												</button>
+											</li>
+										</>
+									)}
+								</ul>
+							</div>
 						</div>
 						<div className={styles.col2}>
 							<ul>
@@ -84,72 +134,16 @@ export default function ServiceScreen(props) {
 								</li>
 							</ul>
 						</div>
-
-						<div className={styles.col3}>
-							<ul>
-								<li>
-									Vendedor{' '}
-									<h2>
-										{/* <Link to={`/seller/${service.seller._id}`}>
-                        {service.seller.name}
-                      </Link> */}
-									</h2>
-									{/* <Rating
-                      rating={service.seller.seller.rating}
-                      numReviews={service.seller.seller.numReviews}
-                    ></Rating> */}
-								</li>
-								<li>
-									<div className='row'>
-										<div>Precio</div>
-										<div className='price'>${service.price}</div>
-									</div>
-								</li>
-								<li>
-									<div className='row'>
-										<div>Estado</div>
-										<div>
-											{service.countInStock > 0 ? (
-												<span className='success'>Disponible</span>
-											) : (
-												<span className='danger'>No disponible</span>
-											)}
-										</div>
-									</div>
-								</li>
-								{service.countInStock > 0 && (
-									<>
-										<li>
-											<div className='row'>
-												<div>Cantidad</div>
-												<div>
-													<select
-														value={qty}
-														onChange={e => setQty(e.target.value)}
-													>
-														{[...Array(service.countInStock).keys()].map(x => (
-															<option key={x + 1} value={x + 1}>
-																{x + 1}
-															</option>
-														))}
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<button onClick={addToCartHandler} className={styles.btn}>
-												Agregar al carrito
-											</button>
-										</li>
-									</>
-								)}
-							</ul>
-						</div>
+					</div>
+					<div className={styles.back}>
+						<Link to='/'>Volver al Inicio</Link>
 					</div>
 					<div className={styles.reseñas}>
 						<h2>Reseñas</h2>
 						{service.reviews.length === 0 && (
-							<MessageBox>No hay Reseñas</MessageBox>
+							<MessageBox>
+								<h2>No hay Reseñas</h2>
+							</MessageBox>
 						)}
 						<ul>
 							{service.reviews.map(review => (
@@ -175,7 +169,7 @@ export default function ServiceScreen(props) {
 										value={rating}
 										onChange={e => setRating(e.target.value)}
 									>
-										<option value=''>Select...</option>
+										<option value=''>Selecciona</option>
 										<option value='1'>1- Bajo</option>
 										<option value='2'>2- Medio</option>
 										<option value='3'>3- Bueno</option>
@@ -184,14 +178,13 @@ export default function ServiceScreen(props) {
 									</select>
 								</div>
 								<div className={styles.textarea}>
-									<label htmlFor='comment'>Comentario</label>
+									<label>Comentario</label>
 									<textarea
-										id='comment'
 										value={comment}
 										onChange={e => setComment(e.target.value)}
 									></textarea>
 								</div>
-								<div>
+								<div className={styles.ContenBtn}>
 									<label />
 									<button className={styles.btnForm} type='submit'>
 										Enviar
