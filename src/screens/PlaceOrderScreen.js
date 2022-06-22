@@ -104,52 +104,36 @@ export default function PlaceOrderScreen(props) {
 					</ul>
 				</div>
 				<div className={styles.check}>
-					<div>
-						<ul>
-							<li>
-								<h2>Resumen del pedido</h2>
-							</li>
-							<li>
-								<div className='row'>
-									<div>Servicios</div>
-									<div>${cart.itemsPrice.toFixed(2)}</div>
-								</div>
-							</li>
-							{/* <li>
-                <div className="row">
-                  <div>Transporte</div>
-                  <div>${cart.shippingPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className="row">
-                  <div>Impuesto</div>
-                  <div>${cart.taxPrice.toFixed(2)}</div>
-                </div>
-              </li> */}
-							<li>
-								<div className='row'>
-									<div>
-										<strong>Valor total</strong>
-									</div>
-									<div>
-										<strong>${cart.totalPrice.toFixed(2)}</strong>
-									</div>
-								</div>
-							</li>
-							<li>
-								<button
-									className={styles.btn}
-									onClick={placeOrderHandler}
-									disabled={cart.cartItems.length === 0}
-								>
-									Realizar pedido
-								</button>
-							</li>
-							{loading && <LoadingBox></LoadingBox>}
-							{error && <MessageBox variant='danger'>{error}</MessageBox>}
-						</ul>
-					</div>
+					<ul>
+						<li>
+							<h2>Resumen del pedido</h2>
+						</li>
+						<li>
+							<div>
+								<h2>Servicios</h2>
+								<div>${cart.itemsPrice.toFixed(2)}</div>
+							</div>
+						</li>
+
+						<li>
+							<div>
+								<h2>Valor total</h2>
+
+								<strong>${cart.totalPrice.toFixed(2)}</strong>
+							</div>
+						</li>
+						<li>
+							<button
+								className={styles.btn}
+								onClick={placeOrderHandler}
+								disabled={cart.cartItems.length === 0}
+							>
+								Realizar pedido
+							</button>
+						</li>
+						{loading && <LoadingBox></LoadingBox>}
+						{error && <MessageBox variant='danger'>{error}</MessageBox>}
+					</ul>
 				</div>
 			</div>
 		</div>

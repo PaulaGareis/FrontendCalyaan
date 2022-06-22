@@ -202,15 +202,17 @@ img.large {
 
 /* Card */
 .card {
-	border: 0.1rem #c0c0c0 solid;
+	border: 0.1rem #eda598 solid;
 	background-color: #f8f8f8;
 	border-radius: 0.5rem;
 	margin: 1rem;
 }
 .card-body {
-	padding: 1rem;
+	border: 0.1rem #eda598 solid;
+	padding: 0.6rem;
 }
 .card-body > * {
+	
 	margin-bottom: 0.5rem;
 }
 .price {

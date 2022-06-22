@@ -5,7 +5,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import { createTurn } from '../actions/turnAction.js'
-import styles from '../style/PlaceOrderScreen.module.css';
+import styles from '../style/OrderScreenTurn.module.css';
 import {
 	TURN_CREATE_SUCCESS,
 	TURN_CREATE_FAIL,

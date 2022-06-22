@@ -91,6 +91,38 @@ export default function OrderScreen(props) {
 						{turnUser && turnUser.status ? 'Turno Aprobado' : 'Turno Pendiente'}
 					</p>
 				</div>
+				<div className={styles.col1}>
+					<div className='card card-body'>
+						<ul>
+							<li>
+								<h2>Resumen del pedido</h2>
+							</li>
+							<li>
+								<div>
+									<div>Servicios</div>
+									<div>${order.itemsPrice.toFixed(2)}</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<strong>Valor total</strong>
+								</div>
+								<div>
+									<strong>${order.totalPrice.toFixed(2)}</strong>
+								</div>
+							</li>
+							<div className={styles.pay}>
+								{turnUser && turnUser.status ? (
+									<button className={styles.btn} onClick={irMercadoPago}>
+										Pagar
+									</button>
+								) : (
+									'Pendiente en ser aprobado el servicio por un profesional'
+								)}
+							</div>
+						</ul>
+					</div>
+				</div>
 				<div>
 					<ul>
 						<li>
@@ -160,86 +192,6 @@ export default function OrderScreen(props) {
 							</div>
 						</li>
 					</ul>
-				</div>
-				<div className='col-1'>
-					<div className='card card-body'>
-						<ul>
-							<li>
-								<h2>Resumen del pedido</h2>
-							</li>
-							<li>
-								<div className='row'>
-									<div>Servicios</div>
-									<div>${order.itemsPrice.toFixed(2)}</div>
-								</div>
-							</li>
-							{/* <li>
-                <div className="row">
-                  <div>Transporte</div>
-                  <div>${order.shippingPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className="row">
-                  <div>Impuesto</div>
-                  <div>${order.taxPrice.toFixed(2)}</div>
-                </div>
-              </li> */}
-							<li>
-								<div className='row'>
-									<div>
-										<strong>Valor total</strong>
-									</div>
-									<div>
-										<strong>${order.totalPrice.toFixed(2)}</strong>
-									</div>
-								</div>
-							</li>
-							{/* {!order.isPaid && (
-                <li>
-                  {!sdkReady ? (
-                    <LoadingBox></LoadingBox>
-                  ) : (
-                    <>
-                      {errorPay && (
-                        <MessageBox variant="danger">{errorPay}</MessageBox>
-                      )}
-                      {loadingPay && <LoadingBox></LoadingBox>}
-
-                      <PayPalButton
-                        amount={order.totalPrice}
-                        onSuccess={successPaymentHandler}
-                      ></PayPalButton>
-                    </>
-                  )}
-                </li>
-              )} */}
-							{/* {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                <li>
-                  {loadingDeliver && <LoadingBox></LoadingBox>}
-                  {errorDeliver && (
-                    <MessageBox variant="danger">{errorDeliver}</MessageBox>
-                  )}
-                  <button
-                    type="button"
-                    className="primary block"
-                    onClick={deliverHandler}
-                  >
-                    Entregar pedido
-                  </button>
-                </li>
-              )} */}
-							<div className={styles.pay}>
-								{turnUser && turnUser.status ? (
-									<button className={styles.btn} onClick={irMercadoPago}>
-										Pagar
-									</button>
-								) : (
-									'Pendiente en ser aprobado el servicio por un profesional'
-								)}
-							</div>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>

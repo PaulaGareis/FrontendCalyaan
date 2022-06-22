@@ -9,15 +9,6 @@
 	margin-top: 2em;
 }
 
-.container h2
-h1
-div
-strong {
-	color: #494949;
-	font-size: 1.5em;
-	font-family: 'Josefin Sans';
-}
-
 .container1 {
 	display: flex;
 	flex-direction: row;
@@ -43,10 +34,12 @@ strong {
 .check {
 	border: solid 1px #eda598;
 	border-radius: 5px;
+	padding-left: 2em;
 	background-color: #f9f6f6;
+	margin-top: 0.6em;
 	color: #494949;
-	width: 25%;
-	height: 40%;
+	width: 28%;
+	height: 30%;
 }
 
 .btn {
@@ -84,9 +77,23 @@ strong {
 	background-color: #494949;
 }
 
+.check h2{
+	color: #494949;
+	font-size: 1em;
+}
+
 @media (max-width: 768px) {
 
+	.btn {
+		padding: 0.6em;
+		font-size: 1.1em;
+		font-family:'Josefin Sans';
+		cursor: pointer;
+		width: 70%;
+		margin-left: 10%;
+		margin-bottom: 5%;
 
+	}
 
 }
 
@@ -95,4 +102,20 @@ strong {
 	.container {
 		margin-top: 1em;
 	}
+	.btn {
+		padding: 0.5em;
+		font-size: 1em;
+		font-family:'Josefin Sans';
+		cursor: pointer;
+		width: 80%;
+		margin-left: 9%;
+	}
+
+	.check {
+		margin-top: 1em;
+		color: #494949;
+		width: 28%;
+		height: 30%;
+	}
+
 }

@@ -18,7 +18,7 @@
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
-	column-gap: 1.5vw;
+	column-gap: 1.2vw;
 	color:#494949;
 	font-size: 1.1em;
 	font-family: 'Josefin Sans';
@@ -207,6 +207,15 @@
 }
 
 @media (max-width: 575.98px) {
+
+	.logo img{
+	width: 7em;
+	height: 5em;
+	margin-left: 3vw;
+	margin-right: 3vw;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	}
 	.menu{
 		display: none;
 	}
