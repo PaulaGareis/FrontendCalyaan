@@ -18,7 +18,7 @@
 }
 
 .col1 {
-	margin-left: 3em;
+	margin-left: 1em;
 	width: 50%;
 	height: 50%;
 	color: #494949;
@@ -101,6 +101,7 @@
 
 	.container {
 		margin-top: 1em;
+
 	}
 	.btn {
 		padding: 0.5em;
