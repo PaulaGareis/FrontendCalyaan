@@ -14,6 +14,7 @@ import catMaquillaje from '../assent/catMaquillaje.png';
 import catMasajes from '../assent/catMasaje.png';
 import catPeluqueria from '../assent/catPeluqueria.png';
 import catUñas from '../assent/catUñas.png';
+import entrarPng from '../assent/entrar.png';
 
 // import service1 from '../assent/services1.jpg';
 
@@ -57,7 +58,10 @@ export default function Landing() {
 								<img src={c.image} alt='' className={styles.img} />
 								<div className={styles.textCard}>
 									<h2>{c.name}</h2>
-									<span>Conoce nuestros servicios</span>
+									<div className={styles.textIcon}>
+										<span>Ver mas</span>
+										<img src={entrarPng} alt='' className={styles.entrarPng} />
+									</div>
 								</div>
 							</NavLink>
 						</li>

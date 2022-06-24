@@ -80,7 +80,7 @@
 
 .col1 h3
  {
-	color: red;
+	color: #494949;
 	font-size: 2em;
 	font-weight: 500;
 	font-family: 'Josefin Sans';
@@ -89,7 +89,7 @@
 .col1 li{
 	font-size: 2em;
 	font-family: 'Josefin Sans';
-	color: red;
+	color: #494949;
 	margin-bottom: 0.5em;
 }
 

@@ -120,8 +120,8 @@
 	background-color: #f02020;
 	color: #ffffff;
 	border-radius: 100%;
-	padding: 0.2vw 0.4vw;
-	font-size: 1vw;
+	padding: 0.2em 0.4em 0.1em;
+	font-size: 1em;
 }
 
 .badge:hover {
@@ -151,7 +151,7 @@
 	justify-content: flex-end;
 	align-items: center;
 	column-gap: 0.6vw;
-	margin: 0 0 0 5vw;
+	margin: 0 0 0 3.8em;
 	height: 8em;
 }
 
