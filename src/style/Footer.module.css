@@ -162,9 +162,11 @@ height: 7%;
 	.btn{
 		display: flex;
 		flex-direction: row;
+		justify-content: flex-end;
 	}
 
 	.btn button{
+		padding-left: 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -172,6 +174,27 @@ height: 7%;
 
 }
 
+.btn button{
+	width: 30%;
+	padding: 0.1em;
+	column-gap: 0;
+}
+
+.btn img{
+	width: 1em;
+	height: 1em;
+	padding-right: 0em;
+}
+
+.btn h3{
+	font-size: 0.5em;
+} 
+.footer5{
+	padding-right: 10%;
+}
+.footer4{
+	padding-left: 1.5em;
+}
 	.container img {
 		width: 5vw;
 		height: 5vw;

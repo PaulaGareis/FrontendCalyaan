@@ -151,6 +151,7 @@ export default function Footer() {
 					</button>
 				</div> */}
 			</div>
+
 			{userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
 		</div>
 	);
