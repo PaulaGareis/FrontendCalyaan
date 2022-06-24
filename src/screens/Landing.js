@@ -69,26 +69,31 @@ export default function Landing() {
 				)}
 			</div>
 
-			<h2>Como Funciona</h2>
+			<h1>Como Funciona</h1>
 
 			<div className={styles.steps}>
-				<div>
+				<div className={styles.steps1}>
 					{' '}
-					<h3>Paso 1</h3>Escoge el servicio que deseas; entre belleza y cuidado
-					personal
+					<span className={styles.text}>Escoge el servicio que deseas</span>
+					<span className={styles.arrow}></span>
 				</div>
-				<div>
+				<div className={styles.steps1}>
 					{' '}
-					<h3>Paso 2</h3> Agenda tu turno en los horarios y días disponibles
+					<span className={styles.text}>
+						Agenda tu turno en los horarios y días disponibles
+					</span>
+					<span className={styles.arrow}></span>
 				</div>
-				<div>
+				<div className={styles.steps1}>
 					{' '}
-					<h3>Paso 3</h3> Realiza el pago a traves de nuestro servicio de pago
-					seguro
+					<span className={styles.text}>
+						Realiza el pago a traves de nuestra plataforma
+					</span>
+					<span className={styles.arrow}></span>
 				</div>
-				<div>
+				<div className={styles.steps2}>
 					{' '}
-					<h3>Paso 4</h3> Disfruta tu servicio en casa
+					<span>Disfruta tu servicio en casa</span>
 				</div>
 			</div>
 		</div>

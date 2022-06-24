@@ -146,66 +146,65 @@ margin: 0.5em;
 
 /* pasos */
 
-.steps {
+.steps{
+	width: 100vw;
+	height: auto;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
-	column-gap: 3em;
+	flex-wrap: wrap;
+	margin-bottom: 2em;
 }
 
-.steps h3 {
-	color: #575d64;
-	font-family: poppins semi bold;
-	text-align: center;
-	font-size: 1.5em;
-	margin: 0% 0% 0% 0%;
+.steps1 {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+align-content: center;
+    width: 20%;
+    height: 20%;
 }
 
-.steps div {
-	border: solid rgba(0, 0, 0, 0.354) 3px;
-	width: 15vw;
-	height: auto;
-	margin: 0.5vw 1.5vw 1vw 1.5vw;
-	padding: 1vw 1vw 1vw 1vw;
-	background-color: #f8f8f8;
-	font-size: 1.2vw;
+.steps2{
+	border: solid 1px #eda598;
+	border-radius: 10px;
+	background-color: #eda598;
+	display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+align-content: center;
+    width: 20%;
+    height: 60px;
+	text-align: justify;
 }
 
-.steps div:hover {
-	transform: scale(1.05);
-	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-}
-.steps div-text {
-	height: 80px;
+.steps2 span{
+	font-weight: 600;
 }
 
-.steps div::before,
-.steps div::after {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	transform: scale3d(0, 0, 1);
-	transition: transform 0.3s ease-out 0s;
-	background: rgba(255, 255, 255, 0.1);
-	content: '';
-	pointer-events: none;
+.text{
+ 	display: block;
+ 	border: 1px solid #eda598;
+    background-color: #eda598;
+    color: #494949;
+	font-weight: 600;
+	text-align: justify;
+ 	padding: 2rem;
+ 	margin-top: 0;
+ 	width: 56%;
+	height: 40px;
 }
-.steps div::before {
-	transform-origin: left top;
-}
-.steps div::after {
-	transform-origin: right bottom;
-}
-.steps div:hover::before,
-.steps div:hover::after,
-.steps div:focus::before,
-.steps div:focus::after {
-	transform: scale3d(1, 1, 1);
+.arrow {
+	width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #eda598;
+    right: 175px;
+    top: -15px;
 }
 
 @media (max-width: 768px) {
@@ -219,9 +218,12 @@ margin: 0.5em;
 	font-size: 1em;	}
 
 	.steps > div {
-		width: 25%;
+		width: 20%;
 		margin-bottom: 1em;
-		font-size: 1em;
+		font-size: 0.7em;
+	}
+	.steps2{
+		margin-top: 0%;
 	}
 }
 @media (max-width: 575.98px) {
@@ -241,4 +243,35 @@ margin: 0.5em;
 		list-style: none;
 		margin: 0;
 	}
+
+	.steps > div {
+		width: 20%;
+		margin-bottom: 0.5em;
+		font-size: 0.5em;
+	}
+
+	
+.steps1 {
+		width: 15%;
+		height: 15%;
+		margin: 0.7em;
+	}
+
+
+	.text{
+		font-size: 0.8em;
+	   text-align: justify;
+	   align-items: center;
+	   align-content: center;
+	   justify-content: center;
+		padding: 0.4rem;
+		margin-top: 0;
+		width: 50%;
+	   height: 40px;
+   }
+   .steps2{
+height: 40px;
+text-align: justify;
+}
+
 }
