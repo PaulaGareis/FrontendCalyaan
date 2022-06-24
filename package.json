@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"@react-google-maps/api": "^1.13.0",
+		"@react-icons/all-files": "^4.1.0",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
@@ -15,8 +16,8 @@
 		"react-credit-cards": "^0.8.3",
 		"react-dom": "^16.13.1",
 		"react-google-charts": "^3.0.15",
+		"react-icons": "^4.4.0",
 		"react-onesignal": "^2.0.3",
-		"react-paypal-button-v2": "^2.6.2",
 		"react-redux": "^7.2.1",
 		"react-responsive-carousel": "^3.2.10",
 		"react-router-dom": "^5.2.0",

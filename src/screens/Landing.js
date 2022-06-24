@@ -1,18 +1,68 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-const-assign */
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LoadingBox from '../components/LoadingBox.js';
+import MessageBox from '../components/MessageBox.js';
 import styles from '../style/Landing.module.css';
-import service1 from '../assent/services1.jpg';
+import catBarberia from '../assent/catBarberia.png';
+import catDepilacion from '../assent/catDepilacion.png';
+import catMaquillaje from '../assent/catMaquillaje.png';
+import catMasajes from '../assent/catMasaje.png';
+import catPeluqueria from '../assent/catPeluqueria.png';
+import catUñas from '../assent/catUñas.png';
+
+// import service1 from '../assent/services1.jpg';
 
 export default function Landing() {
+	const serviceCategoryList = useSelector(state => state.serviceCategoryList);
+	const {
+		loading: loadingCategories,
+		error: errorCategories,
+		categories,
+	} = serviceCategoryList;
+
+	console.log('categoria', categories);
+	const images = {
+		Barbería: catBarberia,
+		Depilación: catDepilacion,
+		Maquillaje: catMaquillaje,
+		Masajes: catMasajes,
+		Peluquería: catPeluqueria,
+		Spa: catDepilacion,
+		Uñas: catUñas,
+		Yoga: catDepilacion,
+	};
+
+	const categoriesImage = categories?.map(c => ({ name: c, image: images[c] }));
+	console.log('categoriesImage', categoriesImage);
 	return (
 		<div className={styles.container}>
-			<div className={styles.Card}>
-				<NavLink to='/service'>
-					<img src={service1} alt='' className={styles.service1} />
-					<h2>Servicios de Belleza y Cuidado Personal</h2>
-				</NavLink>
+			<h1>Servicios</h1>
+			<div className={styles.container1}>
+				{loadingCategories ? (
+					<LoadingBox></LoadingBox>
+				) : errorCategories ? (
+					<MessageBox variant='danger'>{errorCategories}</MessageBox>
+				) : (
+					categoriesImage?.map(c => (
+						<li key={c.name} className={styles.li}>
+							<NavLink
+								to={`/search/category/${c.name}`}
+								className={styles.card}
+							>
+								<img src={c.image} alt='' className={styles.img} />
+								<div className={styles.textCard}>
+									<h2>{c.name}</h2>
+									<span>Conoce nuestros servicios</span>
+								</div>
+							</NavLink>
+						</li>
+					))
+				)}
 			</div>
 
 			<h2>Como Funciona</h2>
