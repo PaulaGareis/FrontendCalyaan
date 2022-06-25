@@ -142,7 +142,7 @@ h2 {
 }
 
 
-.btn {
+.btn button{
 	background-color: #eda598;
 	color: white;
 	border: none;
@@ -156,23 +156,23 @@ h2 {
 	transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
+.btn button:hover {
 	background-color: #494949;
 }
 
-.btn:focus {
+.btn button:focus {
 	background-color: #494949;
 }
 
-.btn:active {
+.btn button:active {
 	background-color: #18d4ca;
 }
 
-.btn:disabled {
+.btn button:disabled {
 	background-color: #18d4ca;
 }
 
-.btn:disabled:hover {
+.btn button:disabled:hover {
 	background-color: #18d4ca;
 }
 
@@ -324,18 +324,18 @@ h2 {
 
 	
 .col1 img {
-	width: 35vw;
-	height: 35vw;
+	width: 30vw;
+	height: 30vw;
 }
 
 .btn {
 	padding: 0.1em;
 	font-size: 0.8em;
-	width: 70%;
+	width: 100%;
 }
 .col3 {
-	width: 80vw;
-	height: 35vw;
+	width: 90vw;
+	height: 30vw;
 }
 .col3 select{
 	width: 25%;
@@ -369,6 +369,7 @@ margin: 0 0 0 0;
 .col1 img {
 	width: 30vw;
 	height: 30vw;
+	margin-right: 1em;
 }
 	 
 
@@ -383,11 +384,13 @@ margin: 0 0 0 0;
 		height: 30vw;
 	} 
 
-	.btn {
+	.btn button{
 		padding: 0.2em;
-		font-size: 0.7em;
-		width: 50%;
-		height: 40%;
+		font-size: 1em;
+		margin-top: 0.5em;
+		width: 30vw;
+		height: 10vw;
+		
 	}
 	.col3 select{
 		width: 25%;

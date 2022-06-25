@@ -73,18 +73,7 @@ export default function ServiceScreen(props) {
 											<div className='price'>${service.price}</div>
 										</div>
 									</li>
-									<li>
-										<div>
-											<h2>Estado</h2>
-											<div>
-												{service.countInStock > 0 ? (
-													<span className='success'>Disponible</span>
-												) : (
-													<span className='danger'>No disponible</span>
-												)}
-											</div>
-										</div>
-									</li>
+
 									{service.countInStock > 0 && (
 										<>
 											<li>
@@ -103,11 +92,8 @@ export default function ServiceScreen(props) {
 													</select>
 												</div>
 											</li>
-											<li>
-												<button
-													onClick={addToCartHandler}
-													className={styles.btn}
-												>
+											<li className={styles.btn}>
+												<button onClick={addToCartHandler}>
 													Agregar al carrito
 												</button>
 											</li>
