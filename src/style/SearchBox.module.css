@@ -67,6 +67,22 @@
 
 @media (max-width: 575.98px) {
   
+    .search {
+        width: 80vw;
+     margin-bottom: 0.5em;
+    }
+
+     
+    .input {
+        width: 99%;
+    }
+
+    .btnSearch img{
+        width: 90%;
+        height: 70%;
+    
+    }
+
 }
 
 
