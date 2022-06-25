@@ -214,6 +214,13 @@ font-weight: 400;
 font-size: 0.8em ;
 padding: 1vw 1vw 1vw 1vw;
 	}
+	.btn {
+		color:#ffffff;
+		border: solid 0.1em #ffffff;
+		font-weight: 400;
+		font-size: 1em;
+		padding: 1vw 1vw 1vw 1vw;
+	}
 }
 
 @media (max-width: 575.98px) {
@@ -247,6 +254,10 @@ font-weight: 400;
 font-size: 0.8em ;
 padding: 1.2vw 1.2vw 1.2vw 1.2vw;
 margin: 0 0 0 0;
+	}
+	.btn {
+		font-size: 1em;
+		padding: 1.5vw 1.5vw 1.5vw 1.5vw;
 	}
 
 }
