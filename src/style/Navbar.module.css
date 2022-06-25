@@ -156,7 +156,7 @@
 }
 
 .nav {
-	margin-left: 0.5vw;
+	
 	margin: 1em;
 	color: #494949;
 	text-decoration: none;
@@ -187,6 +187,8 @@
 }
 
 @media (max-width: 768px) {
+	
+
 	.container {
 		background-color: #eda598;
  }
@@ -204,29 +206,33 @@
 		height: 3em;
 		margin: 0 0 0 4vw;
 	}
+
+	.nav{
+		color:#ffffff;
+		border: solid 0.2em #ffffff;
+font-weight: 400;
+font-size: 0.8em ;
+padding: 1vw 1vw 1vw 1vw;
+	}
 }
 
 @media (max-width: 575.98px) {
-
 	.logo img{
-	width: 7em;
-	height: 5em;
-	margin-left: 3vw;
-	margin-right: 3vw;
-	margin-top: 1vw;
-	margin-bottom: 1vw;
-	}
+		width: 7em;
+		height: 5em;
+		margin-left: 3vw;
+		margin-right: 3vw;
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+		}
+
 	.menu{
 		display: none;
 	}
 
-	.nav{
-		
-		margin-left: 0;
-		font-size: 1em;
-	}
 
 	.signin {
+		margin-left: 3em;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -234,4 +240,13 @@
 		column-gap: 1em;
 		height: 7em;
 	}
+	.nav{
+		color:#ffffff;
+		border: solid 0.15em #ffffff;
+font-weight: 400;
+font-size: 0.8em ;
+padding: 1.2vw 1.2vw 1.2vw 1.2vw;
+margin: 0 0 0 0;
+	}
+
 }

@@ -9,8 +9,11 @@ import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
 import styles from '../style/Navbar.module.css';
 import logo from '../assent/logo.png';
+import logoWhite from '../assent/LOGO34.png';
 import carrito from '../assent/cart2.svg';
+import carritoBlanco from '../assent/cart1.svg';
 import lupa from '../assent/lupa.png';
+import lupaWhite from '../assent/lupaWhite.png';
 
 function Navbar() {
 	const cart = useSelector(state => state.cart);
@@ -61,7 +64,13 @@ function Navbar() {
 			<div className={styles.container}>
 				<div className={styles.logo}>
 					<NavLink to='/'>
-						<img src={logo} alt='Logo' />
+						<div>
+							<picture>
+								<source srcSet={logoWhite} media='(max-width: 768px)' />
+								<source srcSet={logoWhite} media='(max-width: 575.98px)' />
+								<img src={logo} alt='imagen principal' />
+							</picture>
+						</div>
 					</NavLink>
 				</div>
 
@@ -159,7 +168,12 @@ function Navbar() {
 				</div>
 				<div className={styles.carrito}>
 					<NavLink to='/cart'>
-						<img src={carrito} alt='description' />
+						<picture>
+							<source srcSet={carritoBlanco} media='(max-width: 768px)' />
+							<source srcSet={carritoBlanco} media='(max-width: 575.98px)' />
+							<img src={carrito} alt='description' />
+						</picture>
+
 						{cartItems.length > 0 && (
 							<span className={styles.badge}>{cartItems.length}</span>
 						)}
@@ -175,7 +189,11 @@ function Navbar() {
 						></Route>
 					) : (
 						<button type='button' onClick={() => setsearchIsOpen(true)}>
-							<img src={lupa} />
+							<picture>
+								<source srcSet={lupaWhite} media='(max-width: 768px)' />
+								<source srcSet={lupaWhite} media='(max-width: 575.98px)' />
+								<img src={lupa} alt='imagen principal' />
+							</picture>
 						</button>
 					)}
 				</div>

@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 .search {
-	display: flex;
+    float: right;
+	margin-top: 100%;
 	width: 50vw;
     height: auto;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	padding: 0 0 0 0;
-    margin: 0 0 0 0;
+  
 }
 
 .input {
 	padding: 0 0 0 0;
 	width: 40%;
-	height: 3em;
+	height: 2em;
 	border-radius: 0.25em;
     border: solid 1px #494949;
 	color: #494949;
@@ -27,7 +28,7 @@
 
 .btnSearch {
     width: 4em;
-    height: 4em;
+    height: 3em;
     background-color: transparent;
     border: none;
     display: flex;
@@ -44,7 +45,7 @@
 @media (max-width: 768px) {
     .search {
         width: 80vw;
-        margin-left: 0%;
+     
     }
 
      }
@@ -60,7 +61,7 @@
 
 @media (max-width: 575.98px) {
     .search {
-       margin-left: 20%;
+       margin-top: 100%;
     }
 }
 
