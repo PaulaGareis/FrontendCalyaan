@@ -124,6 +124,10 @@
 	height: 25em;
 }
 
+.card div{
+	margin: 0 0 0 0;
+} 
+
 .card img {
 	width: 15em;
 	height: 15em;
@@ -193,7 +197,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
-		align-items: flex-start;
+		align-items: center;
 		margin-top: 0em;
 		margin-bottom: 0.5em;
 	}
@@ -226,4 +230,28 @@
 	.container {
 		margin-top: 4em;
 	}
+
+	.cards {
+		width: 70vw;
+	}
+	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 80%;
+		height: auto;
+		margin: 0em 0em 1em 0em;
+		border: solid 2px #494949;
+		border-radius: 0.7em;
+	
+	}
+	
+	.card img {
+		width: 80%;
+		height: auto;
+		margin: 0.5em 0em 0 1em ;
+	}
+
+
 }

@@ -13,16 +13,18 @@ export default function SearchBox(props) {
 	return (
 		<form onSubmit={submitHandler}>
 			<div className={styles.search}>
-				<input
-					type='text'
-					placeholder='Buscar servicios'
-					name='q'
-					onChange={e => setName(e.target.value)}
-					className={styles.input}
-				></input>
-				<button className={styles.btnSearch} type='submit'>
-					<img src={lupa} />
-				</button>
+				<div className={styles.SearchBox}>
+					<input
+						type='text'
+						placeholder='Buscar servicios'
+						name='q'
+						onChange={e => setName(e.target.value)}
+						className={styles.input}
+					></input>
+					<button className={styles.btnSearch} type='submit'>
+						<img src={lupa} />
+					</button>
+				</div>
 			</div>
 		</form>
 	);

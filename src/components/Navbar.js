@@ -122,7 +122,7 @@ function Navbar() {
 						<div>
 							<div className='dropdown'>
 								<NavLink to='#admin' className={styles.nav}>
-									Vendedor <i></i>
+									Profesional <i></i>
 								</NavLink>
 								<ul className='dropdown-content'>
 									<li>
