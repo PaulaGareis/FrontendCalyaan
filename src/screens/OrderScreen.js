@@ -54,6 +54,11 @@ export default function OrderScreen(props) {
 				}
 			}
 		}
+
+		if (turnUser && !turnUser.status)
+			alert(
+				'recibira una notificacion cuando un profesional acepte realizar el servicio'
+			);
 	}, [
 		dispatch,
 		id,
@@ -72,8 +77,6 @@ export default function OrderScreen(props) {
 		props.history.push(`/mercadoPago/${order._id}`);
 	};
 
-	if (order) console.log('la order gral', order);
-
 	return loading ? (
 		<LoadingBox></LoadingBox>
 	) : error ? (
@@ -87,8 +90,7 @@ export default function OrderScreen(props) {
 					<p>Fecha: {turnUser ? turnUser.day : ''} </p>
 					<p>Hora: {turnUser ? turnUser.hour : ''}</p>
 					<p>
-						Estado:{' '}
-						{turnUser && turnUser.status ? 'Turno Aprobado' : 'Turno Pendiente'}
+						Estado: {turnUser && turnUser.status ? 'Aprobado' : 'Pendiente'}
 					</p>
 
 					{turnUser && turnUser.status ? (
@@ -97,7 +99,8 @@ export default function OrderScreen(props) {
 						</button>
 					) : (
 						<div className={styles.pay}>
-							Pendiente en ser aceptado el servicio
+							En cuanto sea aceptado el servicio aca aparecera la opcion para
+							realizar el pago
 						</div>
 					)}
 				</div>
