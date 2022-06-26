@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
@@ -35,6 +36,7 @@ export default function ShippingAddressScreen(props) {
 
 	const submitHandler = e => {
 		e.preventDefault();
+		setFullName(userInfo.name);
 		const newLat = addressMap ? addressMap.lat : lat;
 		const newLng = addressMap ? addressMap.lng : lng;
 		if (addressMap) {
@@ -84,7 +86,7 @@ export default function ShippingAddressScreen(props) {
 				<div>
 					<h1>Dirección de envío</h1>
 				</div>
-				<div>
+				{/* <div>
 					<label htmlFor='fullName'>Nombre Completo</label>
 					<input
 						type='text'
@@ -94,7 +96,7 @@ export default function ShippingAddressScreen(props) {
 						onChange={e => setFullName(e.target.value)}
 						required
 					></input>
-				</div>
+				</div> */}
 				<div>
 					<label htmlFor='address'>Dirección</label>
 					<input

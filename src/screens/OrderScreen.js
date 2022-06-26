@@ -90,108 +90,68 @@ export default function OrderScreen(props) {
 						Estado:{' '}
 						{turnUser && turnUser.status ? 'Turno Aprobado' : 'Turno Pendiente'}
 					</p>
-				</div>
-				<div className={styles.col1}>
-					<div className='card card-body'>
-						<ul>
-							<li>
-								<h2>Resumen del pedido</h2>
-							</li>
-							<li>
-								<div>
-									<div>Servicios</div>
-									<div>${order.itemsPrice.toFixed(2)}</div>
-								</div>
-							</li>
-							<li>
-								<div>
-									<strong>Valor total</strong>
-								</div>
-								<div>
-									<strong>${order.totalPrice.toFixed(2)}</strong>
-								</div>
-							</li>
-							<div className={styles.pay}>
-								{turnUser && turnUser.status ? (
-									<button className={styles.btn} onClick={irMercadoPago}>
-										Pagar
-									</button>
-								) : (
-									'Pendiente en ser aprobado el servicio por un profesional'
-								)}
-							</div>
-						</ul>
-					</div>
-				</div>
-				<div>
-					<ul>
-						<li>
-							<div className='card card-body'>
-								<p>
-									<strong>Nombre:</strong> {order.shippingAddress.fullName}{' '}
-									<br />
-									<strong>Direccion: </strong> {order.shippingAddress.address},
-									{order.shippingAddress.city},{' '}
-									{order.shippingAddress.postalCode},
-									{order.shippingAddress.country}
-								</p>
-								<h2>Estado del servicio</h2>
-								{order.isDelivered ? (
-									<MessageBox variant='success'>
-										Servicio Realizado en {order.deliveredAt}
-									</MessageBox>
-								) : (
-									<MessageBox variant='danger'>
-										Pendiente por realizar
-									</MessageBox>
-								)}
-							</div>
-						</li>
-						<li>
-							<div className='card card-body'>
-								<p>
-									<strong>Método de pago:</strong> {order.paymentMethod}
-								</p>
-								<h2>Estado</h2>
-								{order.isPaid ? (
-									<MessageBox variant='success'>
-										Pagado el dia {order.paidAt}
-									</MessageBox>
-								) : (
-									<MessageBox variant='danger'>Pendiente por pago</MessageBox>
-								)}
-							</div>
-						</li>
-						<li>
-							<div className='card card-body'>
-								<h2>Servicio Solicitado</h2>
-								<ul>
-									{order.orderItems.map(item => (
-										<li key={item.product}>
-											<div className='row'>
-												<div>
-													<img
-														src={item.image}
-														alt={item.name}
-														className='small'
-													></img>
-												</div>
-												<div className='min-30'>
-													<Link to={`/product/${item.product}`}>
-														{item.name}
-													</Link>
-												</div>
 
-												<div>
-													{item.qty} x ${item.price} = ${item.qty * item.price}
-												</div>
+					{turnUser && turnUser.status ? (
+						<button className={styles.btn} onClick={irMercadoPago}>
+							Pagar
+						</button>
+					) : (
+						<div className={styles.pay}>
+							Pendiente en ser aceptado el servicio
+						</div>
+					)}
+				</div>
+
+				<div>
+					<div className={styles.card}>
+						<p>
+							<p>Direccion: </p>
+							{order.shippingAddress.address},{order.shippingAddress.city},{' '}
+							{order.shippingAddress.postalCode},{order.shippingAddress.country}
+						</p>
+
+						<div>
+							<h2>Servicio Solicitado</h2>
+							<ul>
+								{order.orderItems.map(item => (
+									<li key={item.product}>
+										<div className={styles.service}>
+											<div>
+												<img
+													src={item.image}
+													alt={item.name}
+													className='small'
+												></img>
 											</div>
-										</li>
-									))}
-								</ul>
-							</div>
-						</li>
-					</ul>
+											<div>
+												<Link to={`/product/${item.product}`}>{item.name}</Link>
+											</div>
+
+											<div>
+												{item.qty} x ${item.price} = ${item.qty * item.price}
+											</div>
+										</div>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<h2>Estado</h2>
+						{order.isDelivered ? (
+							<MessageBox variant='success'>
+								Servicio Realizado en {order.deliveredAt}
+							</MessageBox>
+						) : (
+							<MessageBox variant='danger'>Pendiente por realizar</MessageBox>
+						)}
+						{order.isPaid ? (
+							<MessageBox variant='success'>
+								Pagado el dia {order.paidAt}
+							</MessageBox>
+						) : (
+							<MessageBox variant='danger'>Pendiente por pago</MessageBox>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

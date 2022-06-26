@@ -2,26 +2,68 @@
 .container {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	column-gap: 3vw;
 	flex-wrap: wrap;
 	width: 100vw;
 	height: auto;
 	margin-bottom: 3vw;
 }
-
-.container h2,
-h3,
-h1,
-p,
-div,
-strong {
-	color: #494949;
-	font-size: 1.5rem;
+.card h2 {
 	font-family: 'Josefin Sans';
+	color: #494949;
+	font-size: 1.5em;
+	font-weight: 500;
+}
+
+.card p{
+	font-family: 'Josefin Sans';
+	color: #494949;
+	font-size: 1.5em;
+	font-weight: 400;
 }
 
 
 
+.turn {
+	padding: 1em;
+	margin: 1em;
+	border: 0.1em #eda598 solid;
+	background-color: #f8f8f8;
+	border-radius: 0.5rem;
+	width: 40vw;
+	height: auto;
+}
+
+.card{
+	padding: 1em;
+	margin: 1em;
+	border: 0.1em #eda598 solid;
+	background-color: #f8f8f8;
+	border-radius: 0.5rem;
+	width: 40vw;
+	height: auto;
+}
+
+.service{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.service a {
+	font-family: 'Josefin Sans';
+	color: #494949;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.service div {
+	font-family: 'Josefin Sans';
+	color: #494949;
+	font-size: 1.2em;
+	font-weight: 400;
+}
 
 
 .check {
@@ -44,9 +86,9 @@ strong {
 	font-size: 1em;
 	font-family: 'Josefin Sans';
 	cursor: pointer;
-	width: 60%;
+	width: 50%;
 	margin-top: 10%;
-	margin-left: 18%;
+	margin-left: 20%;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -71,18 +113,16 @@ strong {
 }
 
 .pay {
+	border: solid 2px #494949;
+	padding: 1em;
+	border-radius: 15px;
 	margin-top: 1em;
 	color: red;
+	font-family: 'Josefin Sans';
+	font-size: 1.2em;
+
 }
-.turn {
-	padding: 1em;
-	margin: 1em;
-	border: 0.1em #eda598 solid;
-	background-color: #f8f8f8;
-	border-radius: 0.5rem;
-	width: 25vw;
-	height: auto;
-}
+
 
 .turn h3 {
 	font-family: 'Josefin Sans';
@@ -122,15 +162,16 @@ strong {
 @media (max-width: 575.98px) {
 
 	.container {
-		margin-top: 1em;
+		margin-top: 0.5em;
 	}
 
 	.turn{
-		width: 30vw;
+		width: 80vw;
 	}
 
-	.col1{
-padding: 0.5em;
-		width: 50vw;
+	.card{
+		width: 80vw;
 	}
+
+
 }

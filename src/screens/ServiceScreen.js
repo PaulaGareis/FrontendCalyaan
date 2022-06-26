@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createReview, detailsService } from '../actions/serviceActions';
+import { addToCart } from '../actions/cartActions.js';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
@@ -39,7 +40,12 @@ export default function ServiceScreen(props) {
 		dispatch(detailsService(serviceId));
 	}, [dispatch, serviceId, successReviewCreate]);
 	const addToCartHandler = () => {
-		props.history.push(`/cart/${serviceId}?qty=${qty}`);
+		if (serviceId) {
+			dispatch(addToCart(serviceId, qty));
+		}
+
+		props.history.push('/signin?redirect=shipping');
+		// props.history.push(`/cart/${serviceId}?qty=${qty}`);
 	};
 	const submitHandler = e => {
 		e.preventDefault();
@@ -94,7 +100,7 @@ export default function ServiceScreen(props) {
 											</li>
 											<li className={styles.btn}>
 												<button onClick={addToCartHandler}>
-													Agregar al carrito
+													Completa tu pedido
 												</button>
 											</li>
 										</>

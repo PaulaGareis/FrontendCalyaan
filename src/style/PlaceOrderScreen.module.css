@@ -2,6 +2,8 @@
 .container {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 	column-gap: 3vw;
 	width: 100vw;
 	height: auto;
@@ -11,20 +13,15 @@
 
 .container1 {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	justify-content: center;
 	column-gap: 3vw;
-	width: 100vw;
+	width: 60vw;
 	height: auto;
 }
 
-.col1 {
-	margin-left: 1em;
-	width: 50%;
-	height: 50%;
-	color: #494949;
-}
 
-.col1 p{
+.container1 p{
 	color: #494949;
 	font-size: 1em;
 	font-family: 'Josefin Sans';
@@ -51,7 +48,7 @@
 	font-size: 1.3em;
 	font-family:'Josefin Sans';
 	cursor: pointer;
-	width: 60%;
+	width: 50%;
 	margin-left: 18%;
 	margin-bottom: 5%;
 	transition: all 0.3s ease-in-out;
@@ -102,6 +99,10 @@
 	.container {
 		margin-top: 1em;
 
+	}
+
+	.container1{
+	width: 80vw;
 	}
 	.btn {
 		padding: 0.5em;
