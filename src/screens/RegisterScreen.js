@@ -13,6 +13,7 @@ export default function RegisterScreen(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
+	const [numberPhone, setNumberPhone] = useState('');
 
 	const redirect = props.location.search
 		? props.location.search.split('=')[1]
@@ -27,7 +28,7 @@ export default function RegisterScreen(props) {
 		if (password !== confirmPassword) {
 			alert('Password and confirm password are not match');
 		} else {
-			dispatch(register(name, email, password));
+			dispatch(register(name, email, password, numberPhone));
 		}
 	};
 	useEffect(() => {
@@ -61,6 +62,16 @@ export default function RegisterScreen(props) {
 						placeholder='Enter email'
 						required
 						onChange={e => setEmail(e.target.value)}
+					></input>
+				</div>
+				<div>
+					<label htmlFor='numberPhone'>Numero de telefono</label>
+					<input
+						type='text'
+						id='numberPhone'
+						placeholder='telefono'
+						required
+						onChange={e => setNumberPhone(e.target.value)}
 					></input>
 				</div>
 				<div>
