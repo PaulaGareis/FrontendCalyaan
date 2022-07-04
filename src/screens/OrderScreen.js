@@ -54,11 +54,6 @@ export default function OrderScreen(props) {
 				}
 			}
 		}
-
-		if (turnUser && !turnUser.status)
-			alert(
-				'recibira una notificacion cuando un profesional acepte realizar el servicio'
-			);
 	}, [
 		dispatch,
 		id,

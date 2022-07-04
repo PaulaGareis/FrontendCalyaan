@@ -79,7 +79,9 @@ export default function TurnScreen(props, order) {
 			dispatch({ type: TURN_CREATE_SUCCESS, payload: data.turn });
 
 			if (data) {
-				alert('Turno creado con exito');
+				alert(
+					'Turno creado con exito, recibira una notificación cuando el profesional tome el servicio'
+				);
 				history.push(`/order/${props.order._id}`);
 			}
 			// dispatch({ type: CART_EMPTY });

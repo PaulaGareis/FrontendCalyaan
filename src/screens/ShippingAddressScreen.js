@@ -53,13 +53,13 @@ export default function ShippingAddressScreen(props) {
 			props.history.push(`/orderTurn/${order._id}`);
 			// props.history.push(`/turn`);
 			dispatch({ type: ORDER_CREATE_RESET });
-			cart.shippingAddress.fullName = userInfo.name;
 		}
 	}, [dispatch, order, props.history, success]);
 
 	const submitHandler = e => {
 		e.preventDefault();
 		setFullName(userInfo.name);
+		cart.shippingAddress.fullName = userInfo.name;
 		const newLat = addressMap ? addressMap.lat : lat;
 		const newLng = addressMap ? addressMap.lng : lng;
 		if (addressMap) {
