@@ -59,7 +59,9 @@ export default function ShippingAddressScreen(props) {
 	const submitHandler = e => {
 		e.preventDefault();
 		setFullName(userInfo.name);
+		setCountry('Colombia');
 		cart.shippingAddress.fullName = userInfo.name;
+		cart.shippingAddress.country = 'Colombia';
 		const newLat = addressMap ? addressMap.lat : lat;
 		const newLng = addressMap ? addressMap.lng : lng;
 		if (addressMap) {
@@ -158,7 +160,7 @@ export default function ShippingAddressScreen(props) {
 						required
 					></input>
 				</div>
-				<div>
+				{/* <div>
 					<label htmlFor='country'>País</label>
 					<input
 						type='text'
@@ -168,7 +170,7 @@ export default function ShippingAddressScreen(props) {
 						onChange={e => setCountry(e.target.value)}
 						required
 					></input>
-				</div>
+				</div> */}
 				<div>
 					<label htmlFor='chooseOnMap'>Localización</label>
 					<button type='button' onClick={chooseOnMap}>
