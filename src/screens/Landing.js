@@ -14,6 +14,8 @@ import catMaquillaje from '../assent/catMaquillaje.png';
 import catMasajes from '../assent/catMasaje.png';
 import catPeluqueria from '../assent/catPeluqueria.png';
 import catUñas from '../assent/catUñas.png';
+import catSpa from '../assent/catSpa.jpg';
+import catYoga from '../assent/catYoga.jpg';
 import entrarPng from '../assent/entrar.png';
 
 // import service1 from '../assent/services1.jpg';
@@ -33,9 +35,9 @@ export default function Landing() {
 		Maquillaje: catMaquillaje,
 		Masajes: catMasajes,
 		Peluquería: catPeluqueria,
-		Spa: catDepilacion,
+		Spa: catSpa,
 		Uñas: catUñas,
-		Yoga: catDepilacion,
+		Yoga: catYoga,
 	};
 
 	const categoriesImage = categories?.map(c => ({ name: c, image: images[c] }));
