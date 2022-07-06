@@ -76,21 +76,17 @@ export default function Landing() {
 			<div className={styles.steps}>
 				<div className={styles.steps1}>
 					{' '}
-					<span className={styles.text}>Escoge el servicio que deseas</span>
+					<span className={styles.text}>Escoge el servicio</span>
 					<span className={styles.arrow}></span>
 				</div>
 				<div className={styles.steps1}>
 					{' '}
-					<span className={styles.text}>
-						Agenda tu turno en los horarios y días disponibles
-					</span>
+					<span className={styles.text}>Agenda tu turno</span>
 					<span className={styles.arrow}></span>
 				</div>
 				<div className={styles.steps1}>
 					{' '}
-					<span className={styles.text}>
-						Realiza el pago a traves de nuestra plataforma
-					</span>
+					<span className={styles.text}>Realiza el pago</span>
 					<span className={styles.arrow}></span>
 				</div>
 				<div className={styles.steps2}>

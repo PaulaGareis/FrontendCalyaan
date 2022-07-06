@@ -65,65 +65,65 @@ export default function Footer() {
 			<div className={styles.logo}>
 				<img src={logo3} alt='Logo' />
 			</div>
+			<div className={styles.container1}>
+				{/* <div className={styles.footer1}>
+					<h2>CATEGORIAS</h2>
+					<ul>
+						<NavLink to='/service'>
+							{' '}
+							<li>Servicio en Bogota</li>
+						</NavLink>
+					</ul>
+				</div> */}
 
-			<div className={styles.footer1}>
-				<h2>CATEGORIAS</h2>
-				<ul>
-					<NavLink to='/service'>
-						{' '}
-						<li>Servicio en Bogota</li>
-					</NavLink>
-				</ul>
-			</div>
-
-			<div className={styles.footer2}>
-				<h2>CALYAAN</h2>
-				<ul>
-					<NavLink to='/' onClick={handleClickNosotros}>
-						<li>Nosotros</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickContacto}>
-						<li>Contacto</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickBlog}>
-						<li>Blog</li>
-					</NavLink>
-				</ul>
-			</div>
-
-			<div className={styles.footer3}>
-				<h2>ENLACES</h2>
-				<ul>
-					<NavLink to='/' onClick={handleClickCorporativo}>
-						<li>Servicio corporativo</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickTrabaja}>
-						<li>Trabaja con nosotros</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickPrivacidad}>
-						<li>Privacidad</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickHabeas}>
-						<li>Habeas data</li>
-					</NavLink>
-					<NavLink to='/' onClick={handleClickProfesional}>
-						<li>Panel Profesionales</li>
-					</NavLink>
-				</ul>
-			</div>
-
-			<div className={styles.Footer5}>
-				<h2>CONTÁCTANOS</h2>
-				<div className={styles.imgW}>
-					<img src={whatsApp} />
-					<h3> (+57)3147428757</h3>
+				<div className={styles.footer2}>
+					<h2>CALYAAN</h2>
+					<ul>
+						<NavLink to='/' onClick={handleClickNosotros}>
+							<li>Nosotros</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickContacto}>
+							<li>Contacto</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickBlog}>
+							<li>Blog</li>
+						</NavLink>
+					</ul>
 				</div>
-				<div className={styles.imgW}>
-					<img src={correo} />
-					<h3>Calyaan.com@gmail.com</h3>
+
+				<div className={styles.footer3}>
+					<h2>ENLACES</h2>
+					<ul>
+						<NavLink to='/' onClick={handleClickCorporativo}>
+							<li>Servicio corporativo</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickTrabaja}>
+							<li>Trabaja con nosotros</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickPrivacidad}>
+							<li>Privacidad</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickHabeas}>
+							<li>Habeas data</li>
+						</NavLink>
+						<NavLink to='/' onClick={handleClickProfesional}>
+							<li>Panel Profesionales</li>
+						</NavLink>
+					</ul>
+				</div>
+
+				<div className={styles.Footer5}>
+					<h2>CONTÁCTANOS</h2>
+					<div className={styles.imgW}>
+						<img src={whatsApp} />
+						<h3> (+57)3147428757</h3>
+					</div>
+					<div className={styles.imgW}>
+						<img src={correo} />
+						<h3>Calyaan.com@gmail.com</h3>
+					</div>
 				</div>
 			</div>
-
 			<div className={styles.footer4}>
 				<h2>SÍGUENOS</h2>
 				<div className={styles.btn}>
