@@ -22,7 +22,7 @@ function Navbar() {
 	const { cartItems } = cart;
 	const userSignin = useSelector(state => state.userSignin);
 	const { userInfo } = userSignin;
-
+	console.log('usuario', userInfo);
 	const dispatch = useDispatch();
 	const signoutHandler = () => {
 		dispatch(signout());
@@ -96,7 +96,7 @@ function Navbar() {
 					{userInfo ? (
 						<div className='dropdown'>
 							<NavLink to='#' className={styles.nav}>
-								{userInfo.name} <i></i>{' '}
+								{userInfo.numberPhone} <i></i>{' '}
 							</NavLink>
 							<ul className='dropdown-content'>
 								<li>
