@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox.js';
 import MessageBox from '../components/MessageBox.js';
+
 import styles from '../style/Landing.module.css';
 import catBarberia from '../assent/catBarberia.png';
 import catDepilacion from '../assent/catDepilacion.png';

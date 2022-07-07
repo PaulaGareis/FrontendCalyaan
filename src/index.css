@@ -156,7 +156,7 @@ aside.open {
 	transform: translateX(0);
 }
 button.open-sidebar {
-	width: 4em;
+	width: 6em;
 	height: 3em;
 	display: flex;
 	justify-content: center;
@@ -165,11 +165,11 @@ button.open-sidebar {
 	padding: 0.2vw 0.5vw;
 	margin: 0.6vw 0.5vw;
 	background: none;
-	color: #3f2121;
+	color: #f6eded;
 	cursor: pointer;
 }
 button.open-sidebar:hover {
-	border-color: #18d4cb3e;
+	border-color: #eef7f7;
 }
 aside ul {
 	padding: 0;
@@ -477,7 +477,7 @@ img.large {
 	background-color: #f02020;
 }
 
-@media (min-width: 767.98px) {
+@media (min-width: 769px) {
 	aside, aside.open, button.open-sidebar {
 		display: none;
 	}}

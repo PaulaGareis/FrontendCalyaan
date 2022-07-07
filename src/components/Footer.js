@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ChatBox from '../components/ChatBox.js';
 import styles from '../style/Footer.module.css';
@@ -18,47 +17,6 @@ export default function Footer() {
 	// 		'https://api.whatsapp.com/send?phone=+573127411293&text=hola'
 	// 	);
 	// };
-	const handleClickBlog = () => {
-		window.location.replace('https://calyaan.com/blog/');
-	};
-	const handleClickNosotros = () => {
-		window.location.replace('https://calyaan.com/quienes-somos/');
-	};
-	const handleClickContacto = () => {
-		window.location.replace('https://calyaan.com/contactanos/');
-	};
-	const handleClickCorporativo = () => {
-		window.location.replace('https://calyaan.com/empresarial/');
-	};
-	const handleClickTrabaja = () => {
-		window.location.replace('https://calyaan.com/colaboradores/');
-	};
-	const handleClickPrivacidad = () => {
-		window.location.replace('https://calyaan.com/privacidad/');
-	};
-	const handleClickHabeas = () => {
-		window.location.replace('https://calyaan.com/habeas-data/');
-	};
-	const handleClickProfesional = () => {
-		window.location.replace('https://calyaan.com/entra-al-panel/');
-	};
-
-	const handleClickInstagram = () => {
-		window.location.replace(
-			'https://www.instagram.com/accounts/login/?next=/calyaancol/'
-		);
-	};
-	const handleClickFacebook = () => {
-		window.location.replace('https://www.facebook.com/Calyaan-105376747798392');
-	};
-	const handleClickYoutube = () => {
-		window.location.replace(
-			'https://www.youtube.com/channel/UCJNVxAjRm23sU7Q8ylvYxWA'
-		);
-	};
-	const handleClickPinteres = () => {
-		window.location.replace('https://co.pinterest.com/calyaancol/_created/');
-	};
 
 	return (
 		<div className={styles.container}>
@@ -79,36 +37,68 @@ export default function Footer() {
 				<div className={styles.footer2}>
 					<h2>CALYAAN</h2>
 					<ul>
-						<NavLink to='/' onClick={handleClickNosotros}>
-							<li>Nosotros</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickContacto}>
-							<li>Contacto</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickBlog}>
-							<li>Blog</li>
-						</NavLink>
+						<a
+							href='https://calyaan.com/quienes-somos/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li> Nosotros</li>
+						</a>
+						<a
+							href='https://calyaan.com/contactanos/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li> Contacto</li>
+						</a>
+						<a
+							href='https://calyaan.com/blog/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li> Blog</li>
+						</a>
 					</ul>
 				</div>
 
 				<div className={styles.footer3}>
 					<h2>ENLACES</h2>
 					<ul>
-						<NavLink to='/' onClick={handleClickCorporativo}>
-							<li>Servicio corporativo</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickTrabaja}>
+						<a
+							href='https://calyaan.com/empresarial/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li>Servicios Corporativos</li>
+						</a>
+						<a
+							href='https://calyaan.com/colaboradores/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
 							<li>Trabaja con nosotros</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickPrivacidad}>
+						</a>
+						<a
+							href='https://calyaan.com/privacidad/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
 							<li>Privacidad</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickHabeas}>
-							<li>Habeas data</li>
-						</NavLink>
-						<NavLink to='/' onClick={handleClickProfesional}>
-							<li>Panel Profesionales</li>
-						</NavLink>
+						</a>
+						<a
+							href='https://calyaan.com/habeas-data/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li>Habeas Data</li>
+						</a>
+						<a
+							href='https://calyaan.com/entra-al-panel/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<li>Panel de Profesionales</li>
+						</a>
 					</ul>
 				</div>
 
@@ -127,22 +117,39 @@ export default function Footer() {
 			<div className={styles.footer4}>
 				<h2>SÍGUENOS</h2>
 				<div className={styles.btn}>
-					<button onClick={handleClickInstagram}>
+					<a
+						href='https://www.instagram.com/accounts/login/?next=/calyaancol/'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<img src={instagram} />
 						<h3>@Calyaancol</h3>
-					</button>
-					<button onClick={handleClickFacebook}>
+					</a>
+
+					<a
+						href='https://www.facebook.com/Calyaan-105376747798392'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<img src={facebook} />
 						<h3>Calyaan</h3>
-					</button>
-					<button onClick={handleClickYoutube}>
+					</a>
+					<a
+						href='https://www.youtube.com/channel/UCJNVxAjRm23sU7Q8ylvYxWA'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<img src={youtube} />
 						<h3>Calyaan</h3>
-					</button>
-					<button onClick={handleClickPinteres}>
+					</a>
+					<a
+						href='https://co.pinterest.com/calyaancol/_created/'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<img src={pinteres} />
 						<h3>Calyaancol</h3>
-					</button>
+					</a>
 				</div>
 
 				{/* <div className={styles.footer5}>

@@ -9,7 +9,7 @@
 	justify-content: space-around;
 	align-items: flex-start;
 	align-content: center;
-	padding-top: 5vw;
+	padding-top: 2vw;
 	background-color: #494949;
 }
 
@@ -83,7 +83,7 @@ li {
 	flex-direction: column;
 }
 
-.btn button{
+.btn a{
 	display: flex;
 	flex-direction: row;
 	
