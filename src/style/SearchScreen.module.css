@@ -65,8 +65,8 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	margin-left: 1vw;
-	margin-right: 1vw;
+	margin-left: 2vw;
+	
 	border: none;
 	height: auto;
 	color: #494949;
@@ -74,7 +74,7 @@
 
 .col1 h3
  {
-	color: #c52929;
+	color: #494949;
 	font-size: 2em;
 	font-weight: 500;
 	font-family: 'Josefin Sans';
@@ -97,18 +97,18 @@
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
-	gap: 1.5vw
+	margin:0
 }
 
 .card {
 	display: flex;
 	flex-direction: column;
-	justify-content:center;
+	justify-content:flex-start;
 	align-items: center;
 	align-content: center;
-	width: 25%;
+	width: 27%;
 	height: auto;
-	margin: 0em 0em 0em 0em;
+	margin: 1vw;
 	border: solid 2px #494949;
 	border-radius: 0.7em;
 	
@@ -116,12 +116,13 @@
 
 .card img {
 	width: 80%;
-	height: 90%;
+	height: 20vw;
 	align-items: center;
 }
 
 .card h2 {
 	font-size: 1em;
+	font-family:'Josefin Sans';
 	margin-bottom: 0.5em;
 	color: #494949;
 }
@@ -207,6 +208,12 @@
 	margin-bottom: 0.5em;
 }
 
+
+.card{
+	margin: 1vw;
+
+}
+
 }
 
 @media (max-width: 575.98px) {
@@ -253,8 +260,18 @@ width: 80vw;
 	.container {
 		margin-top: 1em;
 	}
+ .cards{
+	width: 95%;
+ }
+	.card{
+		margin: 1vw;
+		width: 35%;
+	}
 
-
-
+	.card img {
+		width: 80%;
+		height: 20vw;
+		margin: 0;
+	}
 
 }
