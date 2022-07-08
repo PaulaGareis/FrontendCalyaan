@@ -79,7 +79,7 @@ height: 2em;
 @media (max-width: 575.98px) {
   
     .SearchBox {
-        width: 40vw;
+        width: 80vw;
        justify-content:flex-end;
         height: 2em;
        
@@ -87,7 +87,7 @@ height: 2em;
 
      
     .SearchBox input {
-        width: 35vw;
+        width: 70vw;
         height: 0.5em;
         background-color: rgba(236, 222, 222, 0.978);
         color: #222020;
