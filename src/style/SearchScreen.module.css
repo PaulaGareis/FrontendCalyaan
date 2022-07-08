@@ -92,7 +92,7 @@
 
 
 .cards {
-	width: 95%;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -106,7 +106,7 @@
 	justify-content:flex-start;
 	align-items: center;
 	align-content: center;
-	width: 27%;
+	width: 30%;
 	height: auto;
 	margin: 1vw;
 	border: solid 2px #494949;
