@@ -66,7 +66,6 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	margin-left: 2vw;
-	
 	border: none;
 	height: auto;
 	color: #494949;
@@ -92,7 +91,7 @@
 
 
 .cards {
-	width: 100%;
+	width: 70vw;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -106,7 +105,7 @@
 	justify-content:flex-start;
 	align-items: center;
 	align-content: center;
-	width: 30%;
+	width: 40%;
 	height: auto;
 	margin: 1vw;
 	border: solid 2px #494949;
