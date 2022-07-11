@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 // import { createTurn } from '../actions/turnAction.js'
 import styles from '../style/OrderScreenTurn.module.css';
 import Swal from 'sweetalert2';
-import CalendarPicker from '@mui/x-date-pickers/CalendarPicker';
 
 import {
 	TURN_CREATE_SUCCESS,
@@ -109,7 +108,7 @@ export default function TurnScreen(props, order) {
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
 			<h1>Elije la fecha y hora para agendar su turno</h1>
-			<CalendarPicker />
+
 			<div>
 				<label>Selecciona la Fecha</label>
 				<input type='date' name='day' onChange={handleChange} />
