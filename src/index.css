@@ -358,6 +358,9 @@ img.large {
 .map-input-box button {
 	border-radius: 0 1rem 1rem 0;
 	border-left: 0;
+	background-color: #494949;
+	color:#ffffff;
+	font-family:'Josefin Sans' ;
 }
 /* Pagination */
 .pagination a {

@@ -11,11 +11,13 @@ import LoadingBox from '../components/LoadingBox';
 import Axios from 'axios';
 import { USER_ADDRESS_MAP_CONFIRM } from '../constants/userConstants';
 import { useDispatch } from 'react-redux';
+import styles from '../style/MapScreen.module.css';
 
 const libs = ['places'];
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 
 export default function MapScreen(props) {
+	console.log('props', props);
 	const [googleApiKey, setGoogleApiKey] = useState('');
 	const [center, setCenter] = useState(defaultLocation);
 	const [location, setLocation] = useState(center);
@@ -101,7 +103,7 @@ export default function MapScreen(props) {
 	console.log('el location', location);
 
 	return googleApiKey ? (
-		<div className='full-container'>
+		<div className={styles.container}>
 			<LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>
 				<GoogleMap
 					id='smaple-map'
@@ -116,8 +118,8 @@ export default function MapScreen(props) {
 						onPlacesChanged={onPlacesChanged}
 					>
 						<div className='map-input-box'>
-							<input type='text' placeholder='Enter your address'></input>
-							<button type='button' className='primary' onClick={onConfirm}>
+							<input type='text' placeholder='Ingrese su ubicacion'></input>
+							<button type='button' onClick={onConfirm}>
 								Confirmar
 							</button>
 						</div>
