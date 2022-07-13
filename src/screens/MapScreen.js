@@ -73,16 +73,16 @@ export default function MapScreen(props) {
 					googleAddressId: places[0].id,
 				},
 			});
-			alert('location selected successfully.');
+			alert('Ubicación seleccionada con exito');
 			props.history.push('/shipping');
 		} else {
-			alert('Please enter your address');
+			alert('Por favor ingrese su dirección');
 		}
 	};
 
-	const getUserCurrentLocation = () => {
+	const getUserCurrentLocation = async () => {
 		if (!navigator.geolocation) {
-			alert('Geolocation os not supported by this browser');
+			alert('La geolocalización no es compatible con este navegador');
 		} else {
 			navigator.geolocation.getCurrentPosition(position => {
 				setCenter({
@@ -96,9 +96,10 @@ export default function MapScreen(props) {
 			});
 		}
 	};
-	console.log('el googleAPiKey', googleApiKey);
+
 	console.log('el center', center);
 	console.log('el location', location);
+
 	return googleApiKey ? (
 		<div className='full-container'>
 			<LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>

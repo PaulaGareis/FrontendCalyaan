@@ -17,7 +17,7 @@ export default function ShippingAddressScreen(props) {
 
 	const cart = useSelector(state => state.cart);
 	const { shippingAddress } = cart;
-	console.log('Info de address', shippingAddress);
+	console.log('Info de cart', cart);
 
 	const [lat, setLat] = useState(shippingAddress.lat);
 	const [lng, setLng] = useState(shippingAddress.lng);
@@ -45,8 +45,8 @@ export default function ShippingAddressScreen(props) {
 	);
 
 	cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-	cart.taxPrice = toPrice(0 * cart.itemsPrice);
-	cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+	cart.taxPrice = toPrice(0.65 * cart.itemsPrice);
+	cart.totalPrice = cart.itemsPrice + cart.shippingPrice - cart.taxPrice;
 
 	useEffect(() => {
 		if (success) {
