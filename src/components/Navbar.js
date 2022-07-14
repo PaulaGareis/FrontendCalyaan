@@ -21,7 +21,7 @@ function Navbar() {
 	const { cartItems } = cart;
 	const userSignin = useSelector(state => state.userSignin);
 	const { userInfo } = userSignin;
-	console.log('usuario', userInfo);
+
 	const dispatch = useDispatch();
 	const signoutHandler = () => {
 		dispatch(signout());

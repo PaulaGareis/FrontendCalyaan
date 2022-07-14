@@ -1,6 +1,23 @@
 .container {
-	width: 100vw;
-	margin-top: 2em;
+    width: 100vw;
+    height: 100vh;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.searchAddress{
+    width: 25vw;
+    height: 15vw;
+    background-color: red;
+}
+
+.map{
+	width: 60vw;
+	height: 60vh;
+}
+.sectionForm{
+width: 30vw;
+height: 30vh;
 }
 
 .btn {
