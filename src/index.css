@@ -594,12 +594,12 @@ img.large {
 
 	.map-input-box{
 margin-top: 6em;
-		width: 80vw;
+		width: 90vw;
 		height: 2em;
 	}
 
 	.map-input-box input {
-		width: 50vw;
+		width: 10vw;
 		height: 2em;
 	
 	}
