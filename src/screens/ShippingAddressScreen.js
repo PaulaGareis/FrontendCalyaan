@@ -23,6 +23,21 @@ const defaultLocation = { lat: 45.516, lng: -73.56 };
 
 export default function ShippingAddressScreen(props) {
 	// Codigo Mapa Google
+
+	const userSignin = useSelector(state => state.userSignin);
+	const { userInfo } = userSignin;
+	const cart = useSelector(state => state.cart);
+
+	const toPrice = num => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
+	cart.itemsPrice = toPrice(
+		cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+	);
+
+	cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+	cart.taxPrice = toPrice(0.65 * cart.itemsPrice);
+	cart.totalPrice = cart.itemsPrice + cart.shippingPrice - cart.taxPrice;
+
+	const { shippingAddress } = cart;
 	const [googleApiKey, setGoogleApiKey] = useState('');
 	const [center, setCenter] = useState(defaultLocation);
 	const [location, setLocation] = useState(center);
@@ -31,9 +46,11 @@ export default function ShippingAddressScreen(props) {
 	const placeRef = useRef(null);
 	const markerRef = useRef(null);
 	const orderCreate = useSelector(state => state.orderCreate);
-	const { order } = orderCreate;
+	const { success, order } = orderCreate;
 	const dispatch = useDispatch();
-
+	if (!userInfo) {
+		props.history.push('/signin');
+	}
 	useEffect(() => {
 		const fetch = async () => {
 			const { data } = await Axios(
@@ -43,7 +60,14 @@ export default function ShippingAddressScreen(props) {
 			getUserCurrentLocation();
 		};
 		fetch();
-	}, []);
+
+		if (success) {
+			Swal.fire('Ubicación seleccionada con exito');
+			props.history.push(`/orderTurn/${order._id}`);
+			// props.history.push(`/turn`);
+			dispatch({ type: ORDER_CREATE_RESET });
+		}
+	}, [success, order]);
 
 	const onLoad = map => {
 		mapRef.current = map;
@@ -66,7 +90,7 @@ export default function ShippingAddressScreen(props) {
 		setLocation({ lat: place.lat(), lng: place.lng() });
 	};
 
-	const onConfirm = () => {
+	const onConfirm = async () => {
 		const places = placeRef.current.getPlaces();
 		console.log('el place', places);
 		if (places && places.length === 1) {
@@ -108,14 +132,7 @@ export default function ShippingAddressScreen(props) {
 				dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
 				console.log('lo que va a la order', cart);
 				dispatch({ type: ORDER_CREATE_RESET });
-				alert('Ubicación seleccionada con exito');
-				order
-					? props.history.push(`/orderTurn/${order._id}`)
-					: props.history.push(`/shipping`);
-				console.log('order q se va', order);
 			}
-
-			// props.history.push('/shipping');
 		} else {
 			alert('Por favor ingrese su dirección');
 		}
@@ -138,26 +155,8 @@ export default function ShippingAddressScreen(props) {
 		}
 	};
 
-	console.log('el center', center);
-	console.log('el location', location);
-
 	// Inicio formulario ShippinAnddress
-	const userSignin = useSelector(state => state.userSignin);
 
-	const { userInfo } = userSignin;
-
-	const cart = useSelector(state => state.cart);
-	const { shippingAddress } = cart;
-
-	const [lat, setLat] = useState(shippingAddress.lat);
-	const [lng, setLng] = useState(shippingAddress.lng);
-
-	const userAddressMap = useSelector(state => state.userAddressMap);
-	const { address: addressMap } = userAddressMap;
-
-	if (!userInfo) {
-		props.history.push('/signin');
-	}
 	const [fullName, setFullName] = useState(shippingAddress.fullName);
 	const [address, setAddress] = useState(shippingAddress.address);
 	const [city, setCity] = useState(shippingAddress.city);
@@ -165,15 +164,6 @@ export default function ShippingAddressScreen(props) {
 	const [country, setCountry] = useState(shippingAddress.country);
 
 	// const dispatch = useDispatch(); repetido
-
-	const toPrice = num => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
-	cart.itemsPrice = toPrice(
-		cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-	);
-
-	cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-	cart.taxPrice = toPrice(0.65 * cart.itemsPrice);
-	cart.totalPrice = cart.itemsPrice + cart.shippingPrice - cart.taxPrice;
 
 	// useEffect(() => {			Repetido
 	// 	if (success) {
@@ -189,55 +179,34 @@ export default function ShippingAddressScreen(props) {
 		setCountry('Colombia');
 		cart.shippingAddress.fullName = userInfo.name;
 		cart.shippingAddress.country = 'Colombia';
-		const newLat = addressMap ? addressMap.lat : lat;
-		const newLng = addressMap ? addressMap.lng : lng;
-		if (addressMap) {
-			setLat(addressMap.lat);
-			setLng(addressMap.lng);
-		}
-		let moveOn = true;
-		if (!newLat || !newLng) {
-			moveOn = Swal.fire('No configuró su ubicación en el mapa. Continuar?');
-		}
-		if (moveOn) {
-			dispatch(
-				saveShippingAddress({
-					fullName,
-					address,
-					city,
-					postalCode,
-					country,
-					lat: newLat,
-					lng: newLng,
-				})
-			);
-			// props.history.push('/placeorder');
 
-			// props.history.push(`/orderTurn/${order._id}`);
-		}
+		dispatch(
+			saveShippingAddress({
+				fullName,
+				address,
+				city,
+				postalCode,
+				country,
+			})
+		);
+		// props.history.push('/placeorder');
+
+		// props.history.push(`/orderTurn/${order._id}`);
+
 		if (cart) dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
 		console.log('lo que va a la order', cart);
 		console.log('lo que va a la order2', cart.cartItems);
 		dispatch({ type: ORDER_CREATE_RESET });
 	};
 
-	// const chooseOnMap = () => {
-	// 	dispatch(
-	// 		saveShippingAddress({
-	// 			fullName,
-	// 			address,
-	// 			city,
-	// 			postalCode,
-	// 			country,
-	// 			lat,
-	// 			lng,
-	// 		})
-	// 	);
-	// 	props.history.push('/map');
-	// };
 	return googleApiKey ? (
 		<div className={styles.container}>
 			<div className={styles.map}>
+				<h1>Use el buscador para encontrar su ubicacion exacta</h1>
+				<span>
+					Ingrese direccion completa (ejemplo: calle 100 # 20-35,
+					Ciudad/Barrio/Localidad)
+				</span>
 				<LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>
 					<GoogleMap
 						id='smaple-map'
@@ -254,7 +223,7 @@ export default function ShippingAddressScreen(props) {
 							<div className='map-input-box'>
 								<input
 									type='text'
-									placeholder='Ingrese su direccion exacta'
+									placeholder='Ingrese su direccion completa'
 								></input>
 								<button type='button' onClick={onConfirm}>
 									Confirmar
@@ -265,19 +234,31 @@ export default function ShippingAddressScreen(props) {
 					</GoogleMap>
 				</LoadScript>
 			</div>
-			<section className={styles.sectionForm}>
+			<div className={styles.sectionForm}>
+				<h1>
+					Tambien puede registrar su direccion en el formulario a continuacion
+				</h1>
+
 				<form className='form' onSubmit={submitHandler}>
-					<div>
-						<h1>Dirección de envío</h1>
-					</div>
 					<div>
 						<label htmlFor='address'>Dirección</label>
 						<input
 							type='text'
 							id='address'
-							placeholder='Enter address'
+							placeholder='Ingrese su direccion'
 							value={address}
 							onChange={e => setAddress(e.target.value)}
+							required
+						></input>
+					</div>
+					<div>
+						<label htmlFor='postalCode'>Barrio/Localidad/Casa/Apto.</label>
+						<input
+							type='text'
+							id='postalCode'
+							placeholder='Barrio/Casa/Apto.'
+							value={postalCode}
+							onChange={e => setPostalCode(e.target.value)}
 							required
 						></input>
 					</div>
@@ -286,20 +267,9 @@ export default function ShippingAddressScreen(props) {
 						<input
 							type='text'
 							id='city'
-							placeholder='Enter city'
+							placeholder='Ciudad'
 							value={city}
 							onChange={e => setCity(e.target.value)}
-							required
-						></input>
-					</div>
-					<div>
-						<label htmlFor='postalCode'>Código Postal</label>
-						<input
-							type='text'
-							id='postalCode'
-							placeholder='Enter postal code'
-							value={postalCode}
-							onChange={e => setPostalCode(e.target.value)}
 							required
 						></input>
 					</div>
@@ -311,7 +281,7 @@ export default function ShippingAddressScreen(props) {
 						</button>
 					</div>
 				</form>
-			</section>
+			</div>
 		</div>
 	) : (
 		<LoadingBox></LoadingBox>
