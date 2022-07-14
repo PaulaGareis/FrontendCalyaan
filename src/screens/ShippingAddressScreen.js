@@ -109,7 +109,9 @@ export default function ShippingAddressScreen(props) {
 				console.log('lo que va a la order', cart);
 				dispatch({ type: ORDER_CREATE_RESET });
 				alert('Ubicación seleccionada con exito');
-				props.history.push(`/orderTurn/${order._id}`);
+				order
+					? props.history.push(`/orderTurn/${order._id}`)
+					: props.history.push(`/shipping`);
 				console.log('order q se va', order);
 			}
 
