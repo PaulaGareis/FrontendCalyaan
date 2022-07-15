@@ -134,6 +134,9 @@ function Navbar() {
 									</li>
 								</ul>
 							</div>
+							{/* <div>
+								<img src={userInfo.logo} alt='' className={styles.imgSeller} />
+							</div>{' '} */}
 						</div>
 					)}
 					{userInfo && userInfo.isAdmin && (
