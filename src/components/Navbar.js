@@ -94,7 +94,7 @@ function Navbar() {
 					{userInfo ? (
 						<div className='dropdown'>
 							<NavLink to='#' className={styles.nav}>
-								{userInfo.numberPhone} <i></i>{' '}
+								{userInfo.phone} <i></i>{' '}
 							</NavLink>
 							<ul className='dropdown-content'>
 								<li>
@@ -184,17 +184,19 @@ function Navbar() {
 				</div>
 			</div>
 			<div className={styles.container1}>
-				{loadingCategories ? (
-					<LoadingBox></LoadingBox>
-				) : errorCategories ? (
-					<MessageBox variant='danger'>{errorCategories}</MessageBox>
-				) : (
-					categories.map(c => (
-						<li key={c}>
-							<NavLink to={`/search/category/${c}`}>{c}</NavLink>
-						</li>
-					))
-				)}
+				<div className={styles.category}>
+					{loadingCategories ? (
+						<LoadingBox></LoadingBox>
+					) : errorCategories ? (
+						<MessageBox variant='danger'>{errorCategories}</MessageBox>
+					) : (
+						categories.map(c => (
+							<li key={c}>
+								<NavLink to={`/search/category/${c}`}>{c}</NavLink>
+							</li>
+						))
+					)}
+				</div>
 				<div className={styles.contenSearch}>
 					<div>
 						<Route

@@ -149,6 +149,11 @@
 	font-family: 'Josefin Sans';
 color: #ffffff;
 }
+.category{
+	display: flex;
+	flex-direction: row;
+}
+
 .contenSearch{
 	width: 10vw;
 }

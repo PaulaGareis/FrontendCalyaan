@@ -15,6 +15,7 @@ export default function Turn(props) {
 	const Turn = {
 		id: turn._id,
 		name: userInfo.name,
+		img: userInfo.logo,
 	};
 	const nameService = turn.service.map(servi => {
 		return servi.name;
