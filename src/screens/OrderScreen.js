@@ -1,9 +1,10 @@
+/* eslint-disable no-const-assign */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { detailsOrder } from '../actions/orderActions';
+import { detailsOrder, updateValue } from '../actions/orderActions';
 import { listTurns } from '../actions/turnAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -26,12 +27,14 @@ export default function OrderScreen(props) {
 	// console.log('lista turnos', turnList)
 
 	const turnUser = turns && turns.find(e => e.orderId === id);
-	// console.log('este es el turno filtrado', turnUser)
+
 	const orderPay = useSelector(state => state.orderPay);
 	const { success: successPay } = orderPay;
 
 	const orderDeliver = useSelector(state => state.orderDeliver);
 	const { success: successDeliver } = orderDeliver;
+
+	console.log('usuario logeado', userSignin);
 
 	const dispatch = useDispatch();
 
@@ -66,10 +69,18 @@ export default function OrderScreen(props) {
 	]);
 
 	// const turnUser = turns && turns.find(e => e.orderId === id);
-	console.log('este es turn Filter', turnUser);
+	// console.log('este es turn Filter', turnUser);
 
 	const irMercadoPago = () => {
 		props.history.push(`/mercadoPago/${order._id}`);
+	};
+
+	const redeemPoints = () => {
+		if (window.confirm('¿Desea redimir sus puntos?')) {
+			dispatch(updateValue(id));
+
+			// window.location.replace('');
+		}
 	};
 
 	return loading ? (
@@ -134,6 +145,20 @@ export default function OrderScreen(props) {
 													Cancelas por este medio el 35% del valor total del
 													servicio
 												</h4>
+												{/* <div>
+													{userInfo &&
+													userInfo.pointsUser > 0 &&
+													succesPoints ? (
+														<div>
+															<h5>Puntos Acumulados {userInfo.pointsUser}</h5>
+															<button onClick={redeemPoints}>
+																Para redimirlos haz click aqui
+															</button>
+														</div>
+													) : (
+														''
+													)}{' '}
+												</div> */}
 											</div>
 										</div>
 									</li>
