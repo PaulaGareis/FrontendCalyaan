@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailsOrder, updateValue } from '../actions/orderActions';
+import { signoutHome } from '../actions/userActions.js';
 import { listTurns } from '../actions/turnAction';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -21,10 +22,12 @@ export default function OrderScreen(props) {
 	const [sdkReady, setSdkReady] = useState(false);
 	const orderDetails = useSelector(state => state.orderDetails);
 	const { order, loading, error } = orderDetails;
+	console.log('order new', order);
+	const userSignin = useSelector(state => state.userSignin);
+	const { userInfo } = userSignin;
 
 	const turnList = useSelector(state => state.turnList);
 	const { turns, loadingTurn } = turnList;
-	// console.log('lista turnos', turnList)
 
 	const turnUser = turns && turns.find(e => e.orderId === id);
 
@@ -34,7 +37,7 @@ export default function OrderScreen(props) {
 	const orderDeliver = useSelector(state => state.orderDeliver);
 	const { success: successDeliver } = orderDeliver;
 
-	console.log('usuario logeado', userSignin);
+	console.log('turno', turnUser);
 
 	const dispatch = useDispatch();
 
@@ -76,10 +79,14 @@ export default function OrderScreen(props) {
 	};
 
 	const redeemPoints = () => {
+		const points = {
+			points: order.userPoints,
+			userId: userInfo._id,
+		};
 		if (window.confirm('¿Desea redimir sus puntos?')) {
-			dispatch(updateValue(id));
-
-			// window.location.replace('');
+			dispatch(updateValue(id, points));
+			window.location.replace('');
+			dispatch(signoutHome());
 		}
 	};
 
@@ -95,6 +102,10 @@ export default function OrderScreen(props) {
 					<h3>Día y hora del Turno Seleccionado</h3>
 					<p>Fecha: {turnUser ? turnUser.day : ''} </p>
 					<p>Hora: {turnUser ? turnUser.hour : ''}</p>
+					<p>
+						Codigo de confirmación: {turnUser ? turnUser.keyCode : ''} <br />{' '}
+						(este numero sera mostrado por el profesional para confirmación)
+					</p>
 					<p>
 						Estado: {turnUser && turnUser.status ? 'Aprobado' : 'Pendiente'}
 					</p>
@@ -145,12 +156,10 @@ export default function OrderScreen(props) {
 													Cancelas por este medio el 35% del valor total del
 													servicio
 												</h4>
-												{/* <div>
-													{userInfo &&
-													userInfo.pointsUser > 0 &&
-													succesPoints ? (
+												<div>
+													{userInfo && order.userPoints > 0 ? (
 														<div>
-															<h5>Puntos Acumulados {userInfo.pointsUser}</h5>
+															<h5>Puntos Acumulados {order.userPoints}</h5>
 															<button onClick={redeemPoints}>
 																Para redimirlos haz click aqui
 															</button>
@@ -158,7 +167,7 @@ export default function OrderScreen(props) {
 													) : (
 														''
 													)}{' '}
-												</div> */}
+												</div>
 											</div>
 										</div>
 									</li>
