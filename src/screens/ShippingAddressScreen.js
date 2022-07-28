@@ -109,8 +109,10 @@ export default function ShippingAddressScreen(props) {
 
 			setFullName(userInfo.name);
 			setCountry('Colombia');
+			setUserPoints(userInfo.pointsUser);
 			cart.shippingAddress.fullName = userInfo.name;
 			cart.shippingAddress.country = 'Colombia';
+			cart.userPoints = userInfo.pointsUser;
 			cart.shippingAddress.address = places[0].formatted_address;
 			cart.shippingAddress.city = places[0].vicinity;
 			const newLat = location.lat;
