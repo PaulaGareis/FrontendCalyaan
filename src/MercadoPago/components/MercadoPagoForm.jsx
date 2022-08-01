@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import useScript from '../hooks/useScript.js';
 import { formConfig } from './formConfig';
+import Axios from 'axios';
 import Card from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { useParams, useHistory } from 'react-router-dom';
@@ -98,9 +99,9 @@ export default function MercadoPagoForm(props) {
 								identificationType,
 							} = cardForm.getCardFormData();
 
-							fetch(
+							Axios.post(
 								`${process.env.REACT_APP_API_BASE_URL}/api/process-payment`,
-								{ mode: 'no-cors' },
+
 								{
 									// entry point backend
 									method: 'POST',
