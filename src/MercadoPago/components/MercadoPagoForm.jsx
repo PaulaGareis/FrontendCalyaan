@@ -100,6 +100,7 @@ export default function MercadoPagoForm(props) {
 
 							fetch(
 								`${process.env.REACT_APP_API_BASE_URL}/api/process-payment`,
+								{ mode: 'no-cors' },
 								{
 									// entry point backend
 									method: 'POST',
