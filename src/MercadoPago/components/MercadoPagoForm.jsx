@@ -104,7 +104,7 @@ export default function MercadoPagoForm(props) {
 									// entry point backend
 									method: 'POST',
 									headers: {
-										'Access-Control-Allow-Origin': '*',
+										// 'Access-Control-Allow-Origin': '*',
 										'Access-Control-Request-Method':
 											'GET, POST, DELETE, PUT, OPTIONS',
 										'Content-Type': 'application/json',
