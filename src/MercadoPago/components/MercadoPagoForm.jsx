@@ -98,32 +98,35 @@ export default function MercadoPagoForm(props) {
 								identificationType,
 							} = cardForm.getCardFormData();
 
-							fetch(`${process.env.REACT_APP_API_BASE_URL}/process-payment`, {
-								// entry point backend
-								method: 'POST',
-								headers: {
-									'Access-Control-Allow-Origin': '*',
-									'Access-Control-Request-Method':
-										'GET, POST, DELETE, PUT, OPTIONS',
-									'Content-Type': 'application/json',
-								},
-								body: JSON.stringify({
-									token,
-									orderId: id,
-									issuer_id,
-									payment_method_id,
-									transaction_amount: amount,
-									installments,
-									description: 'Descripción del producto',
-									payer: {
-										email,
-										identification: {
-											type: identificationType,
-											number: identificationNumber,
-										},
+							fetch(
+								`${process.env.REACT_APP_API_BASE_URL}/api/process-payment`,
+								{
+									// entry point backend
+									method: 'POST',
+									headers: {
+										'Access-Control-Allow-Origin': '*',
+										'Access-Control-Request-Method':
+											'GET, POST, DELETE, PUT, OPTIONS',
+										'Content-Type': 'application/json',
 									},
-								}),
-							})
+									body: JSON.stringify({
+										token,
+										orderId: id,
+										issuer_id,
+										payment_method_id,
+										transaction_amount: amount,
+										installments,
+										description: 'Descripción del producto',
+										payer: {
+											email,
+											identification: {
+												type: identificationType,
+												number: identificationNumber,
+											},
+										},
+									}),
+								}
+							)
 								.then(res => res.json())
 								.then(data => {
 									setResultPayment(data);
