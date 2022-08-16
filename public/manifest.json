@@ -1,20 +1,19 @@
 {
-	"short_name": "Calyaan App",
-	"name": "Create React App Sample",
+	"short_name": "Calyaan",
+	"name": "Calyaan",
 	"icons": [
 		{
-			"src": "logo2.png",
+			"src": "/icon.png",
+			"sizes": "512x512",
 			"type": "image/png",
-			"sizes": "192x192"
-		},
-		{
-			"src": "Logo1.png",
-			"type": "image/png",
-			"sizes": "512x512"
+			"purpose": "any maskable"
 		}
 	],
-	"start_url": ".",
+	"start_url": "/",
+	"scope": "/",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+	"theme_color": "#ffa500",
+	"background_color": "#ffffff",
+	"related_applications": [],
+	"prefer_related_applications": false
 }
